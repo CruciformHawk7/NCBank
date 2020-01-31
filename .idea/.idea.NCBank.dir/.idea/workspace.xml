@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="db68188c-6aaf-4584-98cd-4d3ba1d04b7d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/BankCustomer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/About.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/Error.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/About.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/_ViewImports.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/Index.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/Register.cshtml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/Register.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Models/BankCustomer.cs" />
+        <option value="$PROJECT_DIR$/Pages/Register.cshtml.cs" />
+        <option value="$PROJECT_DIR$/Pages/Shared/_ValidationScriptsPartial.cshtml" />
+        <option value="$PROJECT_DIR$/Pages/Register.cshtml" />
+        <option value="$PROJECT_DIR$/Pages/Index.cshtml" />
+        <option value="$PROJECT_DIR$/Pages/Privacy.cshtml" />
+        <option value="$PROJECT_DIR$/Pages/Error.cshtml" />
+        <option value="$PROJECT_DIR$/Pages/About.cshtml.cs" />
+        <option value="$PROJECT_DIR$/Pages/About.cshtml" />
+        <option value="$PROJECT_DIR$/wwwroot/css/design.css" />
+        <option value="$PROJECT_DIR$/Pages/Shared/_Layout.cshtml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WW04WeuYXuYC5Q4JikBiSiYne8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.NCBank">
+    <configuration name="NCBank" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/NCBank.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="NCBank" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NCBank: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/NCBank.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db68188c-6aaf-4584-98cd-4d3ba1d04b7d" name="Default Changelist" comment="" />
+      <created>1579249874743</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1579249874743</updated>
+      <workItem from="1579249924326" duration="670000" />
+      <workItem from="1579251015345" duration="3580000" />
+      <workItem from="1579458225714" duration="3583000" />
+      <workItem from="1579850016289" duration="1028000" />
+      <workItem from="1580371975343" duration="40000" />
+      <workItem from="1580372217687" duration="1750000" />
+      <workItem from="1580375479519" duration="16994000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="WindowStateProjectService">
+    <state x="327" y="90" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579250072588">
+      <screen x="0" y="22" width="1280" height="698" />
+    </state>
+    <state x="327" y="90" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.22.1280.698@0.22.1280.698" timestamp="1579250072588" />
+    <state width="662" height="194" key="GridCell.Tab.0.bottom" timestamp="1580502813393">
+      <screen x="0" y="22" width="1366" height="746" />
+    </state>
+    <state width="619" height="179" key="GridCell.Tab.0.bottom/0.22.1280.698@0.22.1280.698" timestamp="1579327954113" />
+    <state width="662" height="194" key="GridCell.Tab.0.bottom/0.22.1366.746@0.22.1366.746" timestamp="1580502813393" />
+    <state width="939" height="296" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1579464020347" />
+    <state width="662" height="194" key="GridCell.Tab.0.center" timestamp="1580502813393">
+      <screen x="0" y="22" width="1366" height="746" />
+    </state>
+    <state width="619" height="179" key="GridCell.Tab.0.center/0.22.1280.698@0.22.1280.698" timestamp="1579327954112" />
+    <state width="662" height="194" key="GridCell.Tab.0.center/0.22.1366.746@0.22.1366.746" timestamp="1580502813393" />
+    <state width="939" height="296" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1579464020345" />
+    <state width="662" height="194" key="GridCell.Tab.0.left" timestamp="1580502813392">
+      <screen x="0" y="22" width="1366" height="746" />
+    </state>
+    <state width="619" height="179" key="GridCell.Tab.0.left/0.22.1280.698@0.22.1280.698" timestamp="1579327954112" />
+    <state width="662" height="194" key="GridCell.Tab.0.left/0.22.1366.746@0.22.1366.746" timestamp="1580502813392" />
+    <state width="939" height="296" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1579464020344" />
+    <state width="662" height="194" key="GridCell.Tab.0.right" timestamp="1580502813393">
+      <screen x="0" y="22" width="1366" height="746" />
+    </state>
+    <state width="619" height="179" key="GridCell.Tab.0.right/0.22.1280.698@0.22.1280.698" timestamp="1579327954113" />
+    <state width="662" height="194" key="GridCell.Tab.0.right/0.22.1366.746@0.22.1366.746" timestamp="1580502813393" />
+    <state width="939" height="296" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1579464020346" />
+    <state x="154" y="22" width="992" height="734" key="SettingsEditor" timestamp="1580372920072">
+      <screen x="0" y="22" width="1366" height="746" />
+    </state>
+    <state x="144" y="22" width="990" height="698" key="SettingsEditor/0.22.1280.698@0.22.1280.698" timestamp="1579850430713" />
+    <state x="154" y="22" width="992" height="734" key="SettingsEditor/0.22.1366.746@0.22.1366.746" timestamp="1580372920072" />
+    <state x="347" y="182" key="run.anything.popup" timestamp="1580374309401">
+      <screen x="0" y="22" width="1366" height="746" />
+    </state>
+    <state x="347" y="182" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1580374309401" />
+  </component>
+</project>

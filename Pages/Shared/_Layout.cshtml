@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - N&amp;C Bank</title>
+	<link rel="stylesheet" href="css\design.css">
+	<link rel = "stylesheet" type = "text/css" href = "css\pretty-checkbox.min.css">
+	<link rel="stylesheet" 
+	      href="FontAwesome\css\all.css" />
+	<script type = "text/javascript" src = "scripts/indexScript.js"></script>
+</head>
+<body>
+<nav class="Navigation navbar">
+	<ul>
+		<!--suppress CssUnknownTarget -->
+		<div class="logoPlaceHolder" style="background-image:url('css/bank.svg'); color: #555"></div>
+		<li>
+			<a href = "#top">
+				<span style = "color: black; font-size: large; width: 10%; 
+		       display: inline-block;">
+					<b>@ViewData["CustomTitle"] - NC</b>
+				</span>
+			</a>
+		</li>
+		<div style = "display: inline-block; margin: 0 auto; text-align: center; width: 60%">
+			@{
+				if ((string) ViewData["PageID"] == "Privacy") {
+					<li><span class = "navigator">Privacy</span></li>
+				} else {
+					<li><a href = "/Privacy" class = "navigator">Privacy</a></li>
+				}
+				if ((string) ViewData["PageID"] == "Home") {
+					<li><span style = "font-size: 24px;">
+						<i class="fa fa-home"></i>
+					</span></li>
+				} else {
+					<li><a href = "/Index" class = "navigator" style = "font-size: 24px !important;">
+						<i class="fa fa-home"></i>
+					</a></li>
+				}
+				if ((string) ViewData["PageID"] == "About") {
+					<li><span class = "navigator">About</span></li>
+				} else {
+					<li><a href = "/About" class = "navigator">About</a></li>
+				}
+			}
+		</div>
+	</ul>
+	<div class="userdetails">
+		<a href="/Login" class="navigator">Welcome, Guest!</a>
+	</div>
+</nav>
+<div class="iframepage">
+	<main role = "main" style="position: relative; padding-top: 30px;">
+		@RenderBody()
+	</main>
+</div>
+@RenderSection("Scripts", required: false)
+</body>
+</html>

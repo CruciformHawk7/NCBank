@@ -1,0 +1,141 @@
+﻿@page
+@model Pages.RegisterModel
+@{
+	ViewData["Title"] = "Register";
+	ViewData["CustomTitle"] = "Join Us";
+}
+
+<script src="~/css/design.css"></script>
+
+<br/> <br/>
+<h1 style="margin-bottom: 5px">Join NCBank!</h1>
+<h3 style="margin-left: 20px; margin-top: 5px;">Join us today.</h3>
+
+<div style="position:absolute; left: 50px">
+	<form method = "post">
+		<fieldset class="formbox">
+			<legend>&nbsp;Your info&nbsp;</legend>
+			<table>
+				<tr>
+					<td>
+						First Name<span class = "req">*</span>
+					</td>
+					<td>
+						<input class = "textbox" type = "text" placeholder = "First name here" id="txtFirstName" 
+						       required="required"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Last Name<span class = "req">*</span>
+					</td>
+					<td>
+						<input class = "textbox" type = "text" placeholder = "Last name here" id="txtLastName"
+						       required="required"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Date of Birth<span class = "req">*</span>
+					</td>
+					<td>
+						<input class = "textbox" type = "date" placeholder="Date of Birth" id="cboDateOfBirth"
+						       required="required"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Gender<span class="req">*</span>
+					</td>
+					<td>
+						<div class="pretty p-default p-round p-smooth">
+							<input type="radio" name="gender" id="optMale" required="required"/>
+							<div class="state p-primary">
+								<label>Male</label>
+							</div>
+						</div>
+                  
+						<div class="pretty p-default p-round p-smooth">
+							<input type="radio" name="gender" id="optFemale" required="required"/>
+							<div class="state p-primary">
+								<label>Female</label>
+							</div>
+						</div>
+						<div class="pretty p-default p-round p-smooth">
+							<input type="radio" name="gender" id="optOther" required="required"/>
+							<div class="state p-primary">
+								<label>Other</label>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		<br/> <br/>
+		
+		
+		<fieldset class="formbox">
+			<legend>Family Details</legend>
+			<table>
+				<tr>
+					<td>
+						Father's Name<span class = "req">*</span>
+					</td>
+					<td>
+						<input class = "textbox" type = "text" id="txtFatherName" required="required"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Spouse's Name<span class = "req">*</span>
+					</td>
+					<td>
+						<input class = "textbox" type = "text" id="txtSpouse" required="required"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Marital Status<span class = "req">*</span>
+					</td>
+					<td>
+						<div class="pretty p-default p-round p-smooth">
+							<input type="radio" name="marital" id="optSingle" required="required"/>
+							<div class="state p-primary">
+								<label>Single</label>
+							</div>
+						</div>
+						<div class="pretty p-default p-round p-smooth">
+							<input type="radio" name="gender" id="optMarried" required="required"/>
+							<div class="state p-primary">
+								<label>Married</label>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		<br /> <br/>
+		
+		
+		<fieldset class="formbox">
+			<legend>&nbsp;Official Documents&nbsp;</legend>
+			<table>
+				<tr>
+					<td>
+						Pan Card<span class = "req">*</span>
+					</td>
+					<td>
+						<input class = "textbox" type = "text" placeholder="Pan Card" id="txtPanCard" 
+						       required="required"/>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		
+		
+		<br/> <br/>
+		<button class="MainButton">Register</button> &nbsp; &nbsp; 
+		<button class="button">Reset</button>
+		<br /> <br /> <br/>
+	</form>
+</div>
