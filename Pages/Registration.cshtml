@@ -1,0 +1,143 @@
+﻿@page
+@model RegistrationModel
+@{
+
+    <br />
+        <br />
+        <div class="he-form">
+            <h2>Register Now!</h2>
+            <form style="padding-left: 30px;">
+                <fieldset id="personal">
+                    <legend>Personal</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                <input type="text" class="he-text" placeholder="First Name" id="fname" required />
+                                <input type="text" class="he-text" placeholder="Last Name" id="lname" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Gender
+                            </td>
+                            <td>
+                                <input type="radio" name="gender" value="male" id="rdMale" required />
+                                <label for="rdMale" style="color: #fff">Male</label>
+                                &nbsp; &nbsp;&nbsp;
+                                <input type="radio" name="gender" value="female" id="rdFemale" required />
+                                <label for="rdFemale" style="color: #fff">Female</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Marital Status
+                            </td>
+                            <td>
+                                <input type="radio" name="marital" value="married" id="rdMarried" required />
+                                <label for="rdMale" style="color: #fff">Married</label>
+                                &nbsp; &nbsp;&nbsp;
+                                <input type="radio" name="marital" value="single" id="rdSingle" required />
+                                <label for="rdFemale" style="color: #fff">Single</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Age
+                            </td>
+                            <td>
+                                <input type="text" class="he-text" placeholder="Age" id="age" required />
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset id="contact">
+                    <legend>Contact</legend>
+                    <input type="text" class="he-text" id="HouseName" placeholder="House Name" required />
+                    <input type="text" class="he-text" id="HouseNumber" placeholder="House Number" required />
+                    <input type="text" class="he-text" id="FLAddress" placeholder="First Line Address" required />
+                    <input type="text" class="he-text" id="SLAddress" placeholder="Second Line Address" required />
+                    <input type="text" class="he-text" id="City" placeholder="City" required />
+                    <input type="text" class="he-text" id="State" placeholder="State" required />
+                    <input type="phone" class="he-text" id="Phone" placeholder="Phone" required />
+                </fieldset>
+                <fieldset id="prof">
+                    <legend>Profession</legend>
+                    <input type="text" class="he-text" id="title" placeholder="Job Title" required />
+                    <input type="text" class="he-text" id="orgName" placeholder="Organisation Name" required />
+                    <input type="text" class="he-text" id="City" placeholder="City" required />
+                    <input type="tel" class="he-text" id="PhoneOrg" placeholder="Phone" required />
+                </fieldset>
+                <fieldset id="docs">
+                    <legend>Documents</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                Aadhar Card
+                            </td>
+                            <td>
+                                <input type="number" class="he-text" id="txtAadhar" placeholder="Aadhar Card Number"
+                                    required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                PAN
+                            </td>
+                            <td>
+                                <input type="number" class="he-text" id="txtAadhar" placeholder="Aadhar Card Number"
+                                    required />
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <button id="btnNext" class="MainButton" style="margin-left: 70%;">Next</button>
+            </form>
+        </div>
+
+    <script>
+        $().ready(() => {
+            $('#contact').hide();
+            $('#prof').hide();
+            $('#docs').hide();
+
+            $("#btnNext").click(() => {
+                if ($("#personal").is(':visible')) {
+                    if (($('#fname').val().length > 1)
+                        && ($('#lname').val().length > 1)
+                        && ($('input:radio:checked').length == 2)
+                        && ($('#age').val().length > 1)) {
+                        $('#contact').slideDown();
+                        $('#personal').slideUp();
+                    } else { return true; }
+
+                }  else if ($("#contact").is(':visible')) {
+                    if (($('#HouseName').val().length > 1)
+                        && ($('#HouseNumber').val().length > 1)
+                        && ($('#FLAddress').val().length > 1)
+                        && ($('#City').val().length > 1)
+                        && ($('#State').val().length > 1)
+                        && ($('#Phone').val().length > 1)
+                        && ($('#SLAddress').val().length > 1)) {
+                        $('#prof').slideDown();
+                        $('#contact').slideUp();
+                    } else { console.log('no'); return true; }
+                } else if ($("#prof").is(':visible')) {
+                    if (($('#title').val().length > 1)
+                    && ($('#orgName').val().length > 1)
+                    && ($('#City').val().length > 1)
+                    && ($('#PhoneOrg').val().length > 1)) { 
+                        $('#prof').slideUp();
+                        $('#docs').slideDown();
+                        $("#btnNext").val('Submit');
+                    } else { return true; }
+                } else {
+                    return true;
+                }
+                return false;
+            });
+        });
+    </script>
+}

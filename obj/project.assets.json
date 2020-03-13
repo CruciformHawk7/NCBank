@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "/home/nikhil/.nuget/packages/": {}
+    "C:\\Users\\BHAVANA RAMAIAH\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/nikhil/Code/NCBank/NCBank.csproj",
+      "projectUniqueName": "C:\\Users\\BHAVANA RAMAIAH\\NCBank\\NCBank.csproj",
       "projectName": "NCBank",
-      "projectPath": "/home/nikhil/Code/NCBank/NCBank.csproj",
-      "packagesPath": "/home/nikhil/.nuget/packages/",
-      "outputPath": "/home/nikhil/Code/NCBank/obj/",
+      "projectPath": "C:\\Users\\BHAVANA RAMAIAH\\NCBank\\NCBank.csproj",
+      "packagesPath": "C:\\Users\\BHAVANA RAMAIAH\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\BHAVANA RAMAIAH\\NCBank\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/nikhil/.config/NuGet/NuGet.Config"
+        "C:\\Users\\BHAVANA RAMAIAH\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

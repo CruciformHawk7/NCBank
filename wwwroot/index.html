@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <title>Sidebar View</title>
+    <link rel="stylesheet" href="js/jquery-3.4.1.min.js">
+    <link rel="stylesheet" href="fapro/css/all.css">
+</head>
+
+<body>
+    <nav>
+        <div class="button">
+            <div class="wrapper-menu">
+                <div class="line-menu half start"></div>
+                <div class="line-menu"></div>
+                <div class="line-menu half end"></div>
+            </div>
+        </div>
+
+        <div class="he-banner" style="z-index: 30;">
+        </div>
+
+        <div style="left: 9%; top: 1%; position: absolute; z-index: 40;">
+            <h4 class="he-hero-text">
+                NC Bank
+            </h4>
+        </div>
+
+        <div class="he-inactive-blur">
+
+        </div>
+
+        <div class="he-welcome" data-rellax-speed="4">
+            <h1>
+                <a href="" class="typewrite" data-period="2000" style="text-decoration: none; color: #fff; " data-type='[ "Welcome to NC Bank!", 
+                        "Bienvenido a NC Bank!", 
+                        "Willkommen bei NC Bank!", 
+                        "Bienvenue à NC Bank!"]'>
+                    <span class="wrap"></span>
+                </a>
+            </h1>
+        </div>
+
+        <div class="he-position">
+            <svg class="he-nav-canv" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="black" points="00,00 00,100 00,100 00,00">
+                    <animate id="animate1" to="00,00 00,100 10,100 40,00" begin="indefinite" attributeName="points"
+                        dur="300ms" fill="freeze" />
+                    <animate id="animate2" to="00,00 00,100 80,100 40,00" begin="indefinite" attributeName="points"
+                        dur="200ms" fill="freeze" />
+                    <animate id="animate3" to="00,00 00,100 80,100 100,00" begin="indefinite" attributeName="points"
+                        dur="200ms" fill="freeze" />
+                    <animate id="revert1" to="00,00 00,100 80,100 40,00" begin="indefinite" attributeName="points"
+                        dur="200ms" fill="freeze" />
+                    <animate id="revert2" to=" 00,00 00,100 10,100 40,00" begin="indefinite" attributeName="points"
+                        dur="200ms" fill="freeze" />
+                    <animate id="revert3" to=" 00,00 00,100 00,100 00,00" begin="indefinite" attributeName="points"
+                        dur="300ms" fill="freeze" />
+                </polygon>
+            </svg>
+        </div>
+
+        <div class="he-menu">
+            <div style="position: absolute; margin-top: 190%; margin-bottom: 20%;">
+                <input type="text" class="he-text" style="left: 60%; top: 15%; position: absolute; width: 150px !important;" placeholder="Find..." />
+            </div>
+            <ul style="margin-top: 60%; position: absolute;">
+                <li>
+                    <a>Home</a>
+                </li>
+                <li>
+                <a onclick="$('#signin').slideToggle();">Sign In</a>
+                    <div id="signin" style="display: block;">
+                        <input type="text" class="he-text" style="width: 150px !important;" placeholder="Username" />
+                        <input type="text" class="he-text" style="width: 150px !important;" placeholder="Passwor" />
+                    </div>
+                </li>
+                <li>
+                    <a>Register</a>
+                </li>
+                <li>
+                    <a>Privacy</a>
+                </li>
+                <li>
+                    <a>About</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="he-video-overlay">
+        </div>
+
+    </nav>
+    <video autoplay muted loop class="he-video">
+        <source src="res/out.mp4" type="video/mp4">
+    </video>
+
+    <div class="he-content">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="position: absolute; width: 100%; height: 15%; top: 76%;" preserveAspectRatio="none"
+            viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="myGradient" gradientTransform="rotate(90)">
+                    <stop offset="5%" stop-color="gold" />
+                    <stop offset="95%" stop-color="red" />
+                </linearGradient>
+            </defs>
+            <polygon points="0,100 100,100 100,0 0,90 0,100" fill="white"></polygon>
+            <polygon points="0,100 100,50 100,0 0,90 0,100" fill="url('#myGradient')"></polygon>
+        </svg>
+        <div class="he-page" style="position: absolute; top: 90%;">
+            <h2>Welcome, {User}!</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat ultricies dolor, convallis
+                mattis
+                erat
+                tempus non. Vestibulum ac auctor est. Ut at condimentum orci, sed suscipit velit. Proin id pellentesque
+                massa.
+                Maecenas quis orci varius, commodo purus non, ultricies sem. Integer commodo vel ante at lobortis. Nunc
+                feugiat
+                nisi et est congue fringilla. Ut mollis nisi vitae semper aliquet. Vestibulum non nulla aliquet, rutrum
+                nulla
+                nec, scelerisque magna. Nulla urna odio, accumsan et vulputate et, rutrum et dolor. Proin condimentum,
+                lacus
+                ut
+                consectetur facilisis, ex arcu iaculis velit, posuere vestibulum massa velit ac sem. Nulla tempor
+                aliquet
+                dapibus. Quisque arcu mauris, tristique vitae quam quis, pellentesque suscipit lectus.
+            </p>
+            <p>
+                Cras imperdiet felis id purus luctus consequat. Nulla gravida lacus quis suscipit eleifend. Sed posuere,
+                ex
+                in
+                porta pharetra, enim purus vehicula lacus, eu dapibus felis nulla non mi. Curabitur blandit commodo
+                justo,
+                eget
+                sodales eros cursus ut. Nunc orci sem, pretium molestie purus sed, imperdiet hendrerit nisi. Donec
+                facilisis,
+                massa a laoreet aliquet, risus risus dapibus est, nec aliquet ipsum velit eu mi. Mauris eu augue ut
+                purus
+                pulvinar fringilla. In aliquam posuere nisl.
+            </p>
+            <p>
+                Nulla pellentesque ex non quam blandit, quis pulvinar lectus aliquam. Donec condimentum elit a risus
+                aliquet,
+                sed porta sem auctor. Aenean felis urna, lobortis et finibus a, sodales nec purus. Nulla sapien tortor,
+                scelerisque eu pulvinar fringilla, mattis eu risus. Fusce scelerisque feugiat nunc quis consequat.
+                Praesent
+                semper tincidunt ante, quis sollicitudin dolor lacinia ullamcorper. Vivamus at urna ac nunc venenatis
+                fringilla.
+                Etiam eu enim rhoncus, tempus tortor tempor, lacinia sapien. Suspendisse ut imperdiet nunc. Pellentesque
+                semper
+                metus ex, non eleifend purus pretium et. Sed eu molestie ligula.
+            </p>
+            <p>
+                Ut mollis cursus vulputate. Donec viverra ligula libero, ut finibus metus varius a. Maecenas non
+                pharetra
+                justo.
+                Ut vitae dictum tortor, et vulputate sem. Donec consequat lectus quis felis aliquam pulvinar. Nullam
+                placerat
+                leo risus, sed venenatis tellus efficitur ac. Pellentesque non est non nisi porta sagittis. Cras
+                pharetra
+                libero
+                odio, sed luctus ligula ultrices non. Quisque convallis et nisl nec lobortis. Aliquam vel ornare diam.
+                Vivamus
+                ultrices pretium magna, eu mollis ligula dapibus id. Curabitur accumsan, velit in tempor commodo, massa
+                metus
+                eleifend felis, non rutrum enim felis non lorem. Pellentesque leo justo, suscipit hendrerit venenatis
+                ac,
+                rutrum
+                et lectus.
+            </p>
+            <p>
+                Mauris elementum sit amet nunc ac faucibus. Aenean facilisis, lacus id scelerisque aliquet, massa nibh
+                iaculis
+                eros, sit amet sodales est mauris ut libero. Aliquam at eros eu dui mattis ultricies ut dictum massa.
+                Maecenas
+                tempor imperdiet nibh eget posuere. Mauris vel quam erat. Aliquam a malesuada diam. Nam molestie nisl
+                vel
+                nisi
+                ultricies, eu sodales ipsum ornare. Mauris laoreet ultrices convallis. Nulla ullamcorper fringilla nibh,
+                vel
+                ullamcorper lectus tincidunt vitae. Phasellus eget porta diam.
+            </p>
+            <p>
+                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam ante diam,
+                convallis non auctor eu, pharetra vel lacus. Donec eget fermentum arcu. Aliquam ut lectus a turpis
+                egestas
+                pharetra quis vel augue. Aliquam id consectetur ex. Nulla accumsan lacinia ligula, sit amet eleifend
+                felis
+                convallis et. Pellentesque vel ligula eu dolor mollis tempus non a libero. Proin dui magna, congue et
+                rutrum
+                eget, mollis non nulla. Nam risus est, fringilla fermentum blandit et, semper et velit. Cras ultricies
+                dui
+                ipsum, non feugiat urna cursus eu.
+            </p>
+            <p>
+                Ut eget lacus mauris. Curabitur fringilla aliquet varius. Quisque dapibus ut odio et fermentum. Ut
+                volutpat
+                convallis augue, aliquet venenatis ipsum dapibus at. Praesent fermentum erat vel eleifend suscipit.
+                Vivamus
+                id
+                scelerisque justo. Aliquam tincidunt, felis at gravida imperdiet, tellus enim malesuada augue, vel
+                pellentesque
+                elit leo quis urna. Etiam porttitor nunc in elit aliquam, sit amet lacinia elit varius. Sed et nulla
+                eget
+                dolor
+                iaculis rutrum. Phasellus laoreet bibendum eros in faucibus. In non ligula dignissim, posuere lorem non,
+                vestibulum massa. Ut gravida ut lacus a tempus. Nam eros lorem, fringilla mattis mi sit amet, dictum
+                semper
+                mauris. Curabitur non nisi congue, interdum massa in, facilisis tortor. Suspendisse interdum lacus eu
+                diam
+                tempus dignissim.
+            </p>
+            <p>
+                Suspendisse molestie condimentum ullamcorper. Mauris ac tristique leo. Ut rhoncus congue magna, at
+                consequat
+                leo
+                tristique ut. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos.
+                Vivamus non suscipit augue. Nam in orci lectus. Integer sed mauris volutpat ipsum sollicitudin feugiat
+                sed a
+                turpis. Duis scelerisque imperdiet nulla eu tristique. Pellentesque at lectus tempor, lobortis massa
+                placerat,
+                vulputate ante. Sed quis vestibulum erat, nec tempor nunc. Curabitur suscipit semper augue, at
+                sollicitudin
+                nulla venenatis luctus. In quis aliquet erat. Mauris id lobortis lacus, at cursus metus. In lobortis
+                volutpat
+                erat eu iaculis.
+            </p>
+            <p>
+                Mauris mauris arcu, iaculis id mauris non, egestas tempor orci. Phasellus quis porta elit. Praesent vel
+                erat
+                quis felis viverra placerat. Aliquam vel imperdiet sem. Praesent faucibus, elit ac auctor laoreet, massa
+                dui
+                efficitur lacus, ac dictum ipsum erat a dolor. Ut ultrices, purus vitae lobortis fringilla, turpis
+                libero
+                dapibus nunc, ac imperdiet sem nisi vel nisl. Sed pulvinar egestas lacinia. Donec dapibus odio faucibus
+                eleifend
+                laoreet. Nam cursus magna quis sagittis auctor. Curabitur auctor neque quis viverra blandit. Praesent
+                eros
+                purus, cursus quis tincidunt vel, pharetra a velit. Nullam dapibus ligula non erat pharetra, in eleifend
+                urna
+                ultrices. Suspendisse quis elit non tellus viverra semper in a mauris. Nulla volutpat sapien quis diam
+                pharetra,
+                id iaculis magna porta.
+            </p>
+            <p>
+                Nulla venenatis dictum metus, vitae porttitor odio. Donec sit amet bibendum arcu. Integer accumsan
+                sollicitudin
+                turpis, id aliquam libero hendrerit id. Ut vel tellus ante. Aliquam pulvinar ligula vel lorem auctor,
+                non
+                tempor
+                arcu commodo. In mollis velit congue erat consequat suscipit. Duis consectetur arcu sit amet magna
+                blandit,
+                sed
+                volutpat dui tempus. Etiam tincidunt ante nec erat sagittis, eu tincidunt turpis cursus. Nam cursus non
+                odio
+                ac
+                auctor. Cras in luctus velit.
+            </p>
+        </div>
+    </div>
+    <script>
+        $().ready(()=> {
+            $('#signin').slideToggle();
+        });
+    </script>
+    <script>
+        var animate1 = document.getElementById("animate1");
+        var animate2 = document.getElementById("animate2");
+        var animate3 = document.getElementById("animate3");
+        var revert3 = document.getElementById("revert3");
+        var revert2 = document.getElementById("revert2");
+        var revert1 = document.getElementById("revert1");
+        var wrapperMenu = document.querySelector('.wrapper-menu');
+        var on = true;
+        $('.button').click(() => {
+            wrapperMenu.classList.toggle('open');
+            if (on) {
+                $(".he-video").animate({ width: '95%', left: '5%' }, 100);
+                animate1.beginElement();
+                setTimeout(() => {
+                    animate2.beginElement();
+                }, 100);
+                setTimeout(() => {
+                    animate3.beginElement();
+                }, 200);
+                on = false;
+                $(".he-menu").delay(50).animate({ width: 'toggle' }, 200);
+                $(".he-inactive-blur").fadeIn(100);
+                $(".he-video").css("filter", "blur(8px)");
+            } else {
+                $(".he-video").animate({ width: '100%', left: '0%' }, 100);
+                on = true;
+                revert1.beginElement();
+                setTimeout(() => {
+                    revert2.beginElement();
+                }, 100);
+                setTimeout(() => {
+                    revert3.beginElement();
+                }, 150);
+                $(".he-menu").animate({ width: 'toggle' }, 200);
+                $(".he-inactive-blur").fadeOut(100);
+                $(".he-video").css("filter", "blur(0)");
+            }
+        });
+    </script>
+    <script>
+        var TxtType = function (el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function () {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            var that = this;
+            var delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function () {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function () {
+            var elements = document.getElementsByClassName('typewrite');
+            for (var i = 0; i < elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-type');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+            document.body.appendChild(css);
+        };
+    </script>
+    <script>
+        $(".he-content").scroll(() => {
+            var offset = $(".he-content").scrollTop(), opacity = 1;
+            if (offset <= 100) {
+                opacity = 0;
+                $(".button").slideDown(100);
+            } else if (offset <= 400) {
+                opacity = offset / 400;
+                $(".button").slideUp(100);
+            } 
+            $('.he-video-overlay').css('opacity', opacity).html(opacity);
+        });
+    </script>
+</body>
+
+</html>

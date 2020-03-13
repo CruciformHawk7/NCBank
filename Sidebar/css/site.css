@@ -1,0 +1,233 @@
+@import "Inter/inter.css";
+* {
+    font-family: 'Inter';
+}
+
+html, body {
+    margin: 0px;
+    position: relative;
+    height: 99.9%;
+    background-color: black;
+}
+
+.he-accent-gray {
+    background: #141E30;
+    background: linear-gradient(to right, #243B55, #141E30);
+    color: #fff;
+}
+
+.he-logo .he-user-thumb {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: 50px;
+}
+
+.he-nav {
+    border: 1px solid black;
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+}
+
+.he-user-menu {
+    background-color: #fff;
+    color: black;
+    width: 100%;
+    display: none;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.he-user-menu ul {
+    padding-left: 0px;
+    padding-top: 0px !important;
+}
+
+.he-user-menu ul li {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: 1px solid #fff;
+    transition-property: border;
+    transition-duration: 300ms;
+}
+
+.he-user-menu ul li:hover {
+    border: 1px solid black;
+}
+
+.he-nav ul {
+    padding-top: 10px;
+    padding-left: 0px;
+}
+
+.he-nav ul li {
+    list-style-type: none;
+    padding-left: 0%;
+    font-weight: 600;
+    padding-top: 15px;
+    text-transform: uppercase;
+}
+
+.he-nav-compact {
+    width: 4%;
+    border: 1px solid black;
+    position: absolute;
+    height: 100%;
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.he-logo-compact {
+    left: 13%;
+    margin-top: 3px;
+    position: absolute;
+    z-index: 0;
+}
+
+.he-logo-compact .he-user-thumb {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.he-logo-compact .he-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding-top: 2px;
+    z-index: 0;
+}
+
+.he-icon-select-full {
+    width: 23.8% !important;
+    padding-left: 1px;
+    border: 2px solid #38b2f8;
+}
+
+.he-icon-select {
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgba(43, 142, 255, 0.562), rgba(17, 152, 206, 0.562));
+    width: 3.7%;
+    height: 8%;
+    z-index: 5;
+    border-radius: 2px;
+    border: 2px solid #38b2f8;
+    transition-property: all;
+    transition-duration: 350ms;
+    cursor: default;
+}
+
+.he-compact-expand {
+    width: 20%;
+    height: 100%;
+    border: 1px solid #141E30;
+    left: 4%;
+    position: absolute;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+    font-weight: 600;
+    font-size: larger;
+    z-index: 4;
+}
+
+.he-menu {
+    position: absolute;
+    left: 5%;
+    text-transform: capitalize;
+    padding-top: 1px;
+    z-index: 10;
+    display: block;
+}
+
+.he-menu-hover {
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 1));
+    opacity: 0;
+    border: 2px solid white;
+    width: 23.8%;
+    height: 8%;
+    z-index: 5;
+    transition-property: opacity;
+    transition-duration: 300ms;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.he-menu-hover:hover {
+    opacity: 0.6;
+}
+
+.he-content {
+    background-color: #fff;
+    position: absolute;
+    width: 76%;
+    height: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+    left: 20%;
+    overflow-y: scroll;
+    text-align: justify;
+}
+
+.he-content-compact {
+    background-color: #fff;
+    position: absolute;
+    width: 92%;
+    height: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+    left: 4%;
+    overflow-y: scroll;
+    text-align: justify;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.wrapper-menu {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: default;
+    transition: transform 330ms ease-out;
+}
+
+.wrapper-menu.open {
+    transform: rotate(-45deg);
+}
+
+.line-menu {
+    background-color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    height: 2px;
+}
+
+.line-menu.half {
+    width: 50%;
+}
+
+.line-menu.start {
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: right;
+}
+
+.open .line-menu.start {
+    transform: rotate(-90deg) translateX(3px);
+}
+
+.line-menu.end {
+    align-self: flex-end;
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: left;
+}
+
+.open .line-menu.end {
+    transform: rotate(-90deg) translateX(-3px);
+}

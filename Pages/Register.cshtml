@@ -1,141 +1,148 @@
-﻿@page
-@model Pages.RegisterModel
+@page
+@model NCBank.Pages.Register
+
 @{
-	ViewData["Title"] = "Register";
-	ViewData["CustomTitle"] = "Join Us";
+	ViewData["Title"] = "Home page";
+	ViewData["Nav"] = "Home";
 }
 
-<script src="~/css/design.css"></script>
-
-<br/> <br/>
-<h1 style="margin-bottom: 5px">Join NCBank!</h1>
-<h3 style="margin-left: 20px; margin-top: 5px;">Join us today.</h3>
-
-<div style="position:absolute; left: 50px">
-	<form method = "post">
-		<fieldset class="formbox">
-			<legend>&nbsp;Your info&nbsp;</legend>
+<br />
+<br />
+<div class = "he-form">
+	<h2>Register Now!</h2>
+	<form style = "padding-left: 30px;" method="post">
+		<fieldset id = "personal">
+			<legend>Personal</legend>
 			<table>
 				<tr>
 					<td>
-						First Name<span class = "req">*</span>
+						Name
 					</td>
 					<td>
-						<input class = "textbox" type = "text" placeholder = "First name here" id="txtFirstName" 
-						       required="required"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Last Name<span class = "req">*</span>
-					</td>
-					<td>
-						<input class = "textbox" type = "text" placeholder = "Last name here" id="txtLastName"
-						       required="required"/>
+						<input type = "text" class = "he-text" placeholder = "First Name" id = "fname" required />
+						<input type = "text" class = "he-text" placeholder = "Last Name" id = "lname" required />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						Date of Birth<span class = "req">*</span>
+						Gender
 					</td>
 					<td>
-						<input class = "textbox" type = "date" placeholder="Date of Birth" id="cboDateOfBirth"
-						       required="required"/>
+						<input type = "radio" name = "gender" value = "male" id = "rdMale" required />
+						<label for = "rdMale" style = "color: #fff">Male</label>
+						&nbsp; &nbsp;&nbsp;
+						<input type = "radio" name = "gender" value = "female" id = "rdFemale" required />
+						<label for = "rdFemale" style = "color: #fff">Female</label>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						Gender<span class="req">*</span>
+						Marital Status
 					</td>
 					<td>
-						<div class="pretty p-default p-round p-smooth">
-							<input type="radio" name="gender" id="optMale" required="required"/>
-							<div class="state p-primary">
-								<label>Male</label>
-							</div>
-						</div>
-                  
-						<div class="pretty p-default p-round p-smooth">
-							<input type="radio" name="gender" id="optFemale" required="required"/>
-							<div class="state p-primary">
-								<label>Female</label>
-							</div>
-						</div>
-						<div class="pretty p-default p-round p-smooth">
-							<input type="radio" name="gender" id="optOther" required="required"/>
-							<div class="state p-primary">
-								<label>Other</label>
-							</div>
-						</div>
+						<input type = "radio" name = "marital" value = "married" id = "rdMarried" required />
+						<label for = "rdMale" style = "color: #fff">Married</label>
+						&nbsp; &nbsp;&nbsp;
+						<input type = "radio" name = "marital" value = "single" id = "rdSingle" required />
+						<label for = "rdFemale" style = "color: #fff">Single</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Age
+					</td>
+					<td>
+						<input type = "text" class = "he-text" placeholder = "Age" id = "age" required />
 					</td>
 				</tr>
 			</table>
 		</fieldset>
-		<br/> <br/>
-		
-		
-		<fieldset class="formbox">
-			<legend>Family Details</legend>
+		<fieldset id = "contact">
+			<legend>Contact</legend>
+			<input type = "text" class = "he-text" id = "HouseName" placeholder = "House Name" required />
+			<input type = "text" class = "he-text" id = "HouseNumber" placeholder = "House Number" required />
+			<input type = "text" class = "he-text" id = "FLAddress" placeholder = "First Line Address" required />
+			<input type = "text" class = "he-text" id = "SLAddress" placeholder = "Second Line Address" required />
+			<input type = "text" class = "he-text" id = "City" placeholder = "City" required />
+			<input type = "text" class = "he-text" id = "State" placeholder = "State" required />
+			<input type = "phone" class = "he-text" id = "Phone" placeholder = "Phone" required />
+		</fieldset>
+		<fieldset id = "prof">
+			<legend>Profession</legend>
+			<input type = "text" class = "he-text" id = "title" placeholder = "Job Title" required />
+			<input type = "text" class = "he-text" id = "orgName" placeholder = "Organisation Name" required />
+			<input type = "text" class = "he-text" id = "OrgCity" placeholder = "City" required />
+			<input type = "tel" class = "he-text" id = "PhoneOrg" placeholder = "Phone" required />
+		</fieldset>
+		<fieldset id = "docs">
+			<legend>Documents</legend>
 			<table>
 				<tr>
 					<td>
-						Father's Name<span class = "req">*</span>
+						Aadhar Card
 					</td>
 					<td>
-						<input class = "textbox" type = "text" id="txtFatherName" required="required"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Spouse's Name<span class = "req">*</span>
-					</td>
-					<td>
-						<input class = "textbox" type = "text" id="txtSpouse" required="required"/>
+						<input type = "number" class = "he-text" id = "txtAadhar" placeholder = "Aadhar Card Number"
+						       required />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						Marital Status<span class = "req">*</span>
+						PAN
 					</td>
 					<td>
-						<div class="pretty p-default p-round p-smooth">
-							<input type="radio" name="marital" id="optSingle" required="required"/>
-							<div class="state p-primary">
-								<label>Single</label>
-							</div>
-						</div>
-						<div class="pretty p-default p-round p-smooth">
-							<input type="radio" name="gender" id="optMarried" required="required"/>
-							<div class="state p-primary">
-								<label>Married</label>
-							</div>
-						</div>
+						<input type = "number" class = "he-text" id = "txtPAN" placeholder = "PAN Card Number"
+						       required />
 					</td>
 				</tr>
 			</table>
 		</fieldset>
-		<br /> <br/>
-		
-		
-		<fieldset class="formbox">
-			<legend>&nbsp;Official Documents&nbsp;</legend>
-			<table>
-				<tr>
-					<td>
-						Pan Card<span class = "req">*</span>
-					</td>
-					<td>
-						<input class = "textbox" type = "text" placeholder="Pan Card" id="txtPanCard" 
-						       required="required"/>
-					</td>
-				</tr>
-			</table>
-		</fieldset>
-		
-		
-		<br/> <br/>
-		<button class="MainButton">Register</button> &nbsp; &nbsp; 
-		<button class="button">Reset</button>
-		<br /> <br /> <br/>
+		<button id = "btnNext" class = "MainButton" style = "margin-left: 70%;">Next</button>
 	</form>
 </div>
+
+<script>
+        $().ready(() => {
+            $('#contact').hide();
+            $('#prof').hide();
+            $('#docs').hide();
+            $('.he-welcome').hide();
+            $('.he-video-overlay').css('opacity', '0.8');
+
+            $("#btnNext").click(() => {
+                if ($("#personal").is(':visible')) {
+                    if (($('#fname').val().length > 1)
+                        && ($('#lname').val().length > 1)
+                        && ($('input:radio:checked').length === 2)
+                        && ($('#age').val().length > 1)) {
+                        $('#contact').slideDown();
+                        $('#personal').slideUp();
+                    } else { return true; }
+
+                }  else if ($("#contact").is(':visible')) {
+                    if (($('#HouseName').val().length > 1)
+                        && ($('#HouseNumber').val().length > 1)
+                        && ($('#FLAddress').val().length > 1)
+                        && ($('#City').val().length > 1)
+                        && ($('#State').val().length > 1)
+                        && ($('#Phone').val().length > 1)
+                        && ($('#SLAddress').val().length > 1)) {
+                        $('#prof').slideDown();
+                        $('#contact').slideUp();
+                    } else { console.log('no'); return true; }
+                } else if ($("#prof").is(':visible')) {
+                    if (($('#title').val().length > 1)
+                    && ($('#orgName').val().length > 1)
+                    && ($('#OrgCity').val().length > 1)
+                    && ($('#PhoneOrg').val().length > 1)) { 
+                        $('#prof').slideUp();
+                        $('#docs').slideDown();
+                        $("#btnNext").html('Submit');
+                    } else { return true; }
+                } else {
+                    return true;
+                }
+                return false;
+            });
+        });
+    </script>

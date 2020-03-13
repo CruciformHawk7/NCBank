@@ -1,61 +1,242 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewData["Title"] - N&amp;C Bank</title>
-	<link rel="stylesheet" href="css\design.css">
-	<link rel = "stylesheet" type = "text/css" href = "css\pretty-checkbox.min.css">
-	<link rel="stylesheet" 
-	      href="FontAwesome\css\all.css" />
-	<script type = "text/javascript" src = "scripts/indexScript.js"></script>
+	<meta charset = "utf-8" />
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - NCBank</title>
+	<link rel = "stylesheet" href = "~/css/site.css" />
+	<link rel = "stylesheet" href = "~/css/main.css" />
+	<script src = "~/js/jquery-3.4.1.min.js"></script>
+	<link rel = "stylesheet" href = "~/fapro/css/all.css" />
+	<link rel="stylesheet" href="~/fapro/css/all.css" />
 </head>
 <body>
-<nav class="Navigation navbar">
-	<ul>
-		<!--suppress CssUnknownTarget -->
-		<div class="logoPlaceHolder" style="background-image:url('css/bank.svg'); color: #555"></div>
-		<li>
-			<a href = "#top">
-				<span style = "color: black; font-size: large; width: 10%; 
-		       display: inline-block;">
-					<b>@ViewData["CustomTitle"] - NC</b>
-				</span>
-			</a>
-		</li>
-		<div style = "display: inline-block; margin: 0 auto; text-align: center; width: 60%">
-			@{
-				if ((string) ViewData["PageID"] == "Privacy") {
-					<li><span class = "navigator">Privacy</span></li>
-				} else {
-					<li><a href = "/Privacy" class = "navigator">Privacy</a></li>
-				}
-				if ((string) ViewData["PageID"] == "Home") {
-					<li><span style = "font-size: 24px;">
-						<i class="fa fa-home"></i>
-					</span></li>
-				} else {
-					<li><a href = "/Index" class = "navigator" style = "font-size: 24px !important;">
-						<i class="fa fa-home"></i>
-					</a></li>
-				}
-				if ((string) ViewData["PageID"] == "About") {
-					<li><span class = "navigator">About</span></li>
-				} else {
-					<li><a href = "/About" class = "navigator">About</a></li>
-				}
-			}
+@{
+	if ((string)ViewData["Nav"] == "Home") {
+		<nav>
+			<div class = "button">
+				<div class = "wrapper-menu">
+					<div class = "line-menu half start"></div>
+					<div class = "line-menu"></div>
+					<div class = "line-menu half end"></div>
+				</div>
+			</div>
+
+			<div class = "he-banner" style = "z-index: 30;">
+			</div>
+
+			<div style = "left: 9%; top: 1%; position: absolute; z-index: 40;">
+				<h4 class = "he-hero-text">
+					NC Bank
+				</h4>
+			</div>
+
+			<div class = "he-inactive-blur">
+
+			</div>
+
+			<div class = "he-welcome" data-rellax-speed = "4">
+				<h1>
+					<a href = "" class = "typewrite" data-period = "2000" 
+					   style = "text-decoration: none; color: #fff; " 
+					   data-type = '[ "Welcome to NC Bank!", 
+                        "Bienvenido a NC Bank!", 
+                        "Willkommen bei NC Bank!", 
+                        "Bienvenue à NC Bank!"]'
+					   >
+						<span class = "wrap"></span>
+					</a>
+				</h1>
+			</div>
+
+			<div class = "he-position">
+				<svg class = "he-nav-canv" viewBox = "0 0 100 100" preserveAspectRatio = "none">
+					<polygon fill = "black" points = "00,00 00,100 00,100 00,00">
+						<animate id = "animate1" to = "00,00 00,100 10,100 40,00" begin = "indefinite" 
+						         attributeName = "points"
+						         dur = "300ms" fill = "freeze" />
+						<animate id = "animate2" to = "00,00 00,100 80,100 40,00" begin = "indefinite" 
+						         attributeName = "points"
+						         dur = "200ms" fill = "freeze" />
+						<animate id = "animate3" to = "00,00 00,100 80,100 100,00" begin = "indefinite" 
+						         attributeName = "points"
+						         dur = "200ms" fill = "freeze" />
+						<animate id = "revert1" to = "00,00 00,100 80,100 40,00" begin = "indefinite" 
+									attributeName = "points"
+						         dur = "200ms" fill = "freeze" />
+						<animate id = "revert2" to = " 00,00 00,100 10,100 40,00" begin = "indefinite" 
+						         attributeName = "points"
+						         dur = "200ms" fill = "freeze" />
+						<animate id = "revert3" to = " 00,00 00,100 00,100 00,00" begin = "indefinite" 
+						         attributeName = "points"
+						         dur = "300ms" fill = "freeze" />
+					</polygon>
+				</svg>
+			</div>
+
+			<div class = "he-menu">
+				<div style="position: absolute; margin-top: 190%; margin-bottom: 20%;">
+					<input type="text" class="he-text" 
+					       style="left: 60%; top: 15%; position: absolute; width: 150px !important;" 
+					       placeholder="Find..." />
+				</div>
+				<ul style = "top: 60%; position: absolute; margin-top: 50%">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a onclick = "$('#signin').slideToggle();">Sign In</a>
+						<div id = "signin" style = "display: block;">
+							<input type = "text" class = "he-text" 
+							       style = "width: 150px !important;" placeholder = "Username" />
+							<input type = "text" class = "he-text" 
+							       style = "width: 150px !important;" placeholder = "Password" />
+						</div>
+					</li>
+					<li>
+						<a href="/Register">Register</a>
+					</li>
+					<li>
+						<a href="/Privacy">Privacy</a>
+					</li>
+					<li>
+						<a href="/Error">About</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class = "he-video-overlay">
+			</div>
+
+		</nav>
+		<video autoplay muted loop class = "he-video">
+			<source src = "res/out.mp4" type = "video/mp4">
+		</video>
+
+		<div class = "he-content">
+			@RenderBody()
 		</div>
-	</ul>
-	<div class="userdetails">
-		<a href="/Login" class="navigator">Welcome, Guest!</a>
-	</div>
-</nav>
-<div class="iframepage">
-	<main role = "main" style="position: relative; padding-top: 30px;">
-		@RenderBody()
-	</main>
-</div>
-@RenderSection("Scripts", required: false)
+
+		<script>
+        $().ready(()=> {
+            $('#signin').slideToggle();
+        });
+    </script>
+		<script>
+        const animate1 = document.getElementById("animate1");
+        const animate2 = document.getElementById("animate2");
+        const animate3 = document.getElementById("animate3");
+        const revert3 = document.getElementById("revert3");
+        const revert2 = document.getElementById("revert2");
+        const revert1 = document.getElementById("revert1");
+        const wrapperMenu = document.querySelector('.wrapper-menu');
+        let on = true;
+        $('.button').click(() => {
+            wrapperMenu.classList.toggle('open');
+            if (on) {
+                $(".he-video")
+                	.animate({ width: '95%', left: '5%' }, 100)
+                	.css("filter", "blur(8px)");
+                animate1.beginElement();
+                setTimeout(() => {
+                    animate2.beginElement();
+                }, 100);
+                setTimeout(() => {
+                    animate3.beginElement();
+                }, 200);
+                on = false;
+                $(".he-menu").delay(50).animate({ width: 'toggle' }, 200);
+                $(".he-inactive-blur").fadeIn(100);
+            } else {
+                $(".he-video")
+                	.animate({ width: '100%', left: '0%' }, 100)
+                	.css("filter", "blur(0)");
+                on = true;
+                revert1.beginElement();
+                setTimeout(() => {
+                    revert2.beginElement();
+                }, 100);
+                setTimeout(() => {
+                    revert3.beginElement();
+                }, 150);
+                $(".he-menu").animate({ width: 'toggle' }, 200);
+                $(".he-inactive-blur").fadeOut(100);
+            }
+        });
+    </script>
+		<script>
+        const TxtType = function (el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtType.prototype.tick = function () {
+            const i = this.loopNum % this.toRotate.length;
+            const fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+            const that = this;
+            let delta = 200 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function () {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function () {
+            const elements = document.getElementsByClassName('typewrite');
+            for (let i = 0; i < elements.length; i++) {
+                const toRotate = elements[i].getAttribute('data-type');
+                const period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtType(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            const css = document.createElement("style");
+            css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+            document.body.appendChild(css);
+        };
+    </script>
+		<script>
+        $(".he-content").scroll(() => {
+            let offset = $(".he-content").scrollTop(), opacity = 1;
+            if (offset <= 100) {
+                opacity = 0;
+                $(".button").slideDown(100);
+            } else if (offset <= 400) {
+                opacity = offset / 400;
+                $(".button").slideUp(100);
+            } 
+            $('.he-video-overlay').css('opacity', opacity).html(opacity);
+        });
+    </script>
+		@await RenderSectionAsync("Scripts", required: false)
+	} else {
+		
+	}
+}
 </body>
 </html>

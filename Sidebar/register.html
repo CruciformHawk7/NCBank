@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <title>Sidebar View</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="fapro/css/all.css">
+</head>
+
+<body>
+    <nav>
+        <div class="button">
+            <div class="wrapper-menu">
+                <div class="line-menu half start"></div>
+                <div class="line-menu"></div>
+                <div class="line-menu half end"></div>
+            </div>
+        </div>
+
+        <div style="left: 9%; top: 1%; position: absolute; z-index: 30;">
+            <h4 class="he-hero-text">
+                NC Bank
+            </h4>
+        </div>
+
+        <div class="he-inactive-blur">
+
+        </div>
+
+        <div class="he-welcome">
+            <h1>
+                <a href="" class="typewrite" data-period="2000" style="text-decoration: none; color: #fff; " data-type='[ "Welcome to NC Bank!", 
+                        "Bienvenido a NC Bank!", 
+                        "Willkommen bei NC Bank!", 
+                        "Bienvenue à NC Bank!"]'>
+                    <span class="wrap"></span>
+                </a>
+            </h1>
+        </div>
+        <div class="he-position">
+            <svg class="he-nav-canv" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon fill="black" points="00,00 00,100 00,100 00,00">
+                    <animate id="animate1" to="00,00 00,100 10,100 40,00" begin="indefinite" attributeName="points"
+                        dur="100ms" fill="freeze" />
+                    <animate id="animate2" to="00,00 00,100 80,100 40,00" begin="indefinite" attributeName="points"
+                        dur="100ms" fill="freeze" />
+                    <animate id="animate3" to="00,00 00,100 80,100 100,00" begin="indefinite" attributeName="points"
+                        dur="100ms" fill="freeze" />
+                    <animate id="revert1" to="00,00 00,100 80,100 40,00" begin="indefinite" attributeName="points"
+                        dur="100ms" fill="freeze" />
+                    <animate id="revert2" to=" 00,00 00,100 10,100 40,00" begin="indefinite" attributeName="points"
+                        dur="100ms" fill="freeze" />
+                    <animate id="revert3" to=" 00,00 00,100 00,100 00,00" begin="indefinite" attributeName="points"
+                        dur="100ms" fill="freeze" />
+                </polygon>
+            </svg>
+        </div>
+
+        <div class="he-menu">
+            <ul>
+                <li>Home</li>
+                <li>Register</li>
+                <li>Privacy</li>
+                <li>About</li>
+            </ul>
+        </div>
+
+        <div class="he-video-overlay">
+        </div>
+
+    </nav>
+    <video autoplay muted loop class="he-video">
+        <source src="res/out.mp4" type="video/mp4">
+    </video>
+
+    <div class="he-content">
+        <br />
+        <br />
+        <div class="he-form">
+            <h2>Register Now!</h2>
+            <form style="padding-left: 30px;">
+                <fieldset id="personal">
+                    <legend>Personal</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                Name
+                            </td>
+                            <td>
+                                <input type="text" class="he-text" placeholder="First Name" id="fname" required />
+                                <input type="text" class="he-text" placeholder="Last Name" id="lname" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Gender
+                            </td>
+                            <td>
+                                <input type="radio" name="gender" value="male" id="rdMale" required />
+                                <label for="rdMale" style="color: #fff">Male</label>
+                                &nbsp; &nbsp;&nbsp;
+                                <input type="radio" name="gender" value="female" id="rdFemale" required />
+                                <label for="rdFemale" style="color: #fff">Female</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Marital Status
+                            </td>
+                            <td>
+                                <input type="radio" name="marital" value="married" id="rdMarried" required />
+                                <label for="rdMale" style="color: #fff">Married</label>
+                                &nbsp; &nbsp;&nbsp;
+                                <input type="radio" name="marital" value="single" id="rdSingle" required />
+                                <label for="rdFemale" style="color: #fff">Single</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Age
+                            </td>
+                            <td>
+                                <input type="text" class="he-text" placeholder="Age" id="age" required />
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset id="contact">
+                    <legend>Contact</legend>
+                    <input type="text" class="he-text" id="HouseName" placeholder="House Name" required />
+                    <input type="text" class="he-text" id="HouseNumber" placeholder="House Number" required />
+                    <input type="text" class="he-text" id="FLAddress" placeholder="First Line Address" required />
+                    <input type="text" class="he-text" id="SLAddress" placeholder="Second Line Address" required />
+                    <input type="text" class="he-text" id="City" placeholder="City" required />
+                    <input type="text" class="he-text" id="State" placeholder="State" required />
+                    <input type="phone" class="he-text" id="Phone" placeholder="Phone" required />
+                </fieldset>
+                <fieldset id="prof">
+                    <legend>Profession</legend>
+                    <input type="text" class="he-text" id="title" placeholder="Job Title" required />
+                    <input type="text" class="he-text" id="orgName" placeholder="Organisation Name" required />
+                    <input type="text" class="he-text" id="City" placeholder="City" required />
+                    <input type="tel" class="he-text" id="PhoneOrg" placeholder="Phone" required />
+                </fieldset>
+                <fieldset id="docs">
+                    <legend>Documents</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                Aadhar Card
+                            </td>
+                            <td>
+                                <input type="number" class="he-text" id="txtAadhar" placeholder="Aadhar Card Number"
+                                    required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                PAN
+                            </td>
+                            <td>
+                                <input type="number" class="he-text" id="txtAadhar" placeholder="Aadhar Card Number"
+                                    required />
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <button id="btnNext" class="MainButton" style="margin-left: 70%;">Next</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $().ready(() => {
+            $('#contact').hide();
+            $('#prof').hide();
+            $('#docs').hide();
+
+            $("#btnNext").click(() => {
+                if ($("#personal").is(':visible')) {
+                    if (($('#fname').val().length > 1)
+                        && ($('#lname').val().length > 1)
+                        && ($('input:radio:checked').length == 2)
+                        && ($('#age').val().length > 1)) {
+                        $('#contact').slideDown();
+                        $('#personal').slideUp();
+                    } else { return true; }
+
+                }  else if ($("#contact").is(':visible')) {
+                    if (($('#HouseName').val().length > 1)
+                        && ($('#HouseNumber').val().length > 1)
+                        && ($('#FLAddress').val().length > 1)
+                        && ($('#City').val().length > 1)
+                        && ($('#State').val().length > 1)
+                        && ($('#Phone').val().length > 1)
+                        && ($('#SLAddress').val().length > 1)) {
+                        $('#prof').slideDown();
+                        $('#contact').slideUp();
+                    } else { console.log('no'); return true; }
+                } else if ($("#prof").is(':visible')) {
+                    if (($('#title').val().length > 1)
+                    && ($('#orgName').val().length > 1)
+                    && ($('#City').val().length > 1)
+                    && ($('#PhoneOrg').val().length > 1)) { 
+                        $('#prof').slideUp();
+                        $('#docs').slideDown();
+                        $("#btnNext").val('Submit');
+                    } else { return true; }
+                } else {
+                    return true;
+                }
+                return false;
+            });
+        });
+    </script>
+    <script>
+        var animate1 = document.getElementById("animate1");
+        var animate2 = document.getElementById("animate2");
+        var animate3 = document.getElementById("animate3");
+        var revert3 = document.getElementById("revert3");
+        var revert2 = document.getElementById("revert2");
+        var revert1 = document.getElementById("revert1");
+        var wrapperMenu = document.querySelector('.wrapper-menu');
+        var on = true;
+        $('.he-video-overlay').css('opacity', '0.7');
+        $('.he-welcome').hide();
+        $('.button').click(() => {
+            wrapperMenu.classList.toggle('open');
+            if (on) {
+                $(".he-video").animate({ width: '95%', left: '5%' }, 100);
+                animate1.beginElement();
+                setTimeout(() => {
+                    animate2.beginElement();
+                }, 100);
+                setTimeout(() => {
+                    animate3.beginElement();
+                }, 200);
+                on = false;
+                $(".he-menu").delay(50).animate({ width: 'toggle' }, 200);
+                $(".he-inactive-blur").fadeIn(100);
+                $(".he-video").css("filter", "blur(8px)");
+            } else {
+                $(".he-video").animate({ width: '100%', left: '0%' }, 100);
+                on = true;
+                revert1.beginElement();
+                setTimeout(() => {
+                    revert2.beginElement();
+                }, 100);
+                setTimeout(() => {
+                    revert3.beginElement();
+                }, 150);
+                $(".he-menu").animate({ width: 'toggle' }, 200);
+                $(".he-inactive-blur").fadeOut(100);
+                $(".he-video").css("filter", "blur(0)");
+            }
+        });
+    </script>
+</body>
+
+</html>

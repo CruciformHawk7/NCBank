@@ -9,6 +9,12 @@
 /home/nikhil/Code/NCBank/bin/Debug/netcoreapp3.1/NCBank.pdb
 /home/nikhil/Code/NCBank/bin/Debug/netcoreapp3.1/NCBank.Views.dll
 /home/nikhil/Code/NCBank/bin/Debug/netcoreapp3.1/NCBank.Views.pdb
+/home/nikhil/Code/NCBank/bin/Debug/netcoreapp3.1/DnsClient.dll
+/home/nikhil/Code/NCBank/bin/Debug/netcoreapp3.1/MongoDB.Bson.dll
+/home/nikhil/Code/NCBank/bin/Debug/netcoreapp3.1/MongoDB.Driver.dll
+/home/nikhil/Code/NCBank/bin/Debug/netcoreapp3.1/MongoDB.Driver.Core.dll
+/home/nikhil/Code/NCBank/bin/Debug/netcoreapp3.1/MongoDB.Libmongocrypt.dll
+/home/nikhil/Code/NCBank/bin/Debug/netcoreapp3.1/SharpCompress.dll
 /home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/NCBank.csprojAssemblyReference.cache
 /home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/staticwebassets/NCBank.StaticWebAssets.Manifest.cache
 /home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/staticwebassets/NCBank.StaticWebAssets.xml
@@ -30,8 +36,7 @@
 /home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/NCBank.RazorTargetAssemblyInfo.cache
 /home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/NCBank.RazorTargetAssemblyInfo.cs
 /home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/NCBank.Views.pdb
+/home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/NCBank.csproj.CopyComplete
 /home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/NCBank.dll
 /home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/NCBank.pdb
-/home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/NCBank.csproj.CopyComplete
 /home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/Razor/Pages/Register.cshtml.g.cs
-/home/nikhil/Code/NCBank/obj/Debug/netcoreapp3.1/Razor/Pages/About.cshtml.g.cs
