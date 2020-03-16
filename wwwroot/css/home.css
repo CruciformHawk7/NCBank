@@ -1,0 +1,188 @@
+@import "Inter/inter.css";
+@font-face {
+    font-family: 'Blacksword';
+    font-style: normal;
+    src: url('Blacksword.otf');
+}
+
+:root {
+    font-family: 'Inter';
+    font-size: 18px;
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+    --accent-primary: #26C6DA;
+    --accent-secondary: #0277BD;
+    --bg-nav-selected: black;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+nav {
+    background: var(--bg-primary);
+    position: fixed;
+    transition: 500ms ease;
+    border-right: 6px solid grey;
+}
+
+nav:hover .logo {
+    filter: grayscale(0%) opacity(1);
+}
+
+nav:hover .fa-chevron-double-left {
+    transform: rotate(0deg);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.link-text {
+    display: none;
+    margin-left: 0.25rem;
+    color: var(--accent-secondary);
+}
+
+nav ul li {
+    width: 100%;
+}
+
+.heading {
+    display: inline;
+    position: absolute;
+    left: -399px;
+    transition: 500ms;
+}
+
+.logo {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    font-size: 1.5rem;
+    width: 100%;
+    filter: grayscale(100%) opacity(0.5);
+    font-family: 'Blacksword';
+}
+
+.selected a {
+    filter: grayscale(0%) opacity(1) !important;
+    background: var(--bg-nav-selected);
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    filter: grayscale(100%) opacity(0.5);
+    transition: 500ms;
+}
+
+.head {
+    background: var(--bg-nav-selected) !important;
+    filter: grayscale(0%) opacity(1) !important;
+    max-width: 14rem;
+}
+
+.fa-chevron-double-left {
+    transform: rotate(-180deg);
+    transition: 500ms;
+}
+
+nav ul li a:hover {
+    filter: grayscale(25%) opacity(0.9);
+    background: var(--bg-nav-selected);
+}
+
+nav ul li a svg {
+    width: 1.8rem;
+    min-width: 1.8rem;
+    margin: 0 1rem;
+}
+
+.svg-primary {
+    color: var(--accent-primary);
+}
+
+.svg-secondary {
+    color: var(--accent-secondary);
+}
+
+main {
+    margin-left: 4rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+p,
+div.card {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+}
+
+
+/* Mobile */
+
+@media only screen and (max-width: 600px) {
+    nav {
+        bottom: 0;
+        width: 100vw;
+        height: 5rem;
+    }
+    .logo {
+        display: none;
+    }
+    nav ul {
+        flex-direction: row;
+    }
+    nav ul li a {
+        justify-content: center;
+    }
+    main {
+        margin: 0;
+    }
+}
+
+
+/* Desktop */
+
+@media only screen and (min-width: 600px) {
+    nav {
+        top: 0;
+        width: 4rem;
+        height: 100vh;
+    }
+    nav:hover {
+        width: 14rem;
+    }
+    nav:hover .link-text {
+        display: block;
+        font-weight: 500;
+    }
+    nav:hover .head svg {
+        right: 1rem;
+        margin-left: 12rem;
+    }
+    nav:hover .heading {
+        left: 0px;
+    }
+    nav ul li:last-child {
+        margin-top: auto;
+    }
+}
