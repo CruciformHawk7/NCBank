@@ -19,8 +19,10 @@
 						Name
 					</td>
 					<td>
-						<input type = "text" class = "he-text" placeholder = "First Name" id = "fname" required />
-						<input type = "text" class = "he-text" placeholder = "Last Name" id = "lname" required />
+						<input type = "text" class = "he-text" placeholder = "First Name" 
+								id = "fname" required asp-for="customer.FirstName" />
+						<input type = "text" class = "he-text" placeholder = "Last Name" 
+								id = "lname" required asp-for="customer.LastName" />
 					</td>
 				</tr>
 				<tr>
@@ -28,10 +30,11 @@
 						Gender
 					</td>
 					<td>
-						<input type = "radio" name = "gender" value = "male" id = "rdMale" required />
+						<input type = "radio" name = "gender" value = "male" id = "rdMale" 
+								required asp-for="customer.Gender"/>
 						<label for = "rdMale" style = "color: #fff">Male</label>
-						&nbsp; &nbsp;&nbsp;
-						<input type = "radio" name = "gender" value = "female" id = "rdFemale" required />
+						<input type = "radio" name = "gender" value = "female" id = "rdFemale" 
+								required  asp-for="customer.Gender"/>
 						<label for = "rdFemale" style = "color: #fff">Female</label>
 					</td>
 				</tr>
@@ -40,10 +43,12 @@
 						Marital Status
 					</td>
 					<td>
-						<input type = "radio" name = "marital" value = "married" id = "rdMarried" required />
+						<input type = "radio" name = "marital" value = "married" id = "rdMarried" 
+								required asp-for="customer.MaritalStatus"/>
 						<label for = "rdMale" style = "color: #fff">Married</label>
 						&nbsp; &nbsp;&nbsp;
-						<input type = "radio" name = "marital" value = "single" id = "rdSingle" required />
+						<input type = "radio" name = "marital" value = "single" id = "rdSingle" 
+						       required asp-for="customer.MaritalStatus" />
 						<label for = "rdFemale" style = "color: #fff">Single</label>
 					</td>
 				</tr>
@@ -52,20 +57,54 @@
 						Age
 					</td>
 					<td>
-						<input type = "text" class = "he-text" placeholder = "Age" id = "age" required />
+						<input type = "text" class = "he-text" placeholder = "Age" id = "age" required asp-for="customer.Age"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Email
+					</td>
+					<td>
+						<input type = "email" class = "he-text" placeholder = "Email Address" 
+								id = "email" required asp-for="customer.Email" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Password
+					</td>
+					<td>
+						<input type = "password" class = "he-text" placeholder = "Password" 
+								id = "pwd" required asp-for="customer.Password" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Confirm Password
+					</td>
+					<td>
+						<input type = "password" class = "he-text" placeholder = "Confirm Password" 
+								id = "pwdConf" required />
 					</td>
 				</tr>
 			</table>
 		</fieldset>
 		<fieldset id = "contact">
 			<legend>Contact</legend>
-			<input type = "text" class = "he-text" id = "HouseName" placeholder = "House Name" required />
-			<input type = "text" class = "he-text" id = "HouseNumber" placeholder = "House Number" required />
-			<input type = "text" class = "he-text" id = "FLAddress" placeholder = "First Line Address" required />
-			<input type = "text" class = "he-text" id = "SLAddress" placeholder = "Second Line Address" required />
-			<input type = "text" class = "he-text" id = "City" placeholder = "City" required />
-			<input type = "text" class = "he-text" id = "State" placeholder = "State" required />
-			<input type = "phone" class = "he-text" id = "Phone" placeholder = "Phone" required />
+			<input type = "text" class = "he-text" id = "HouseName" placeholder = "House Name" 
+			       required asp-for="customer.HouseName"/>
+			<input type = "text" class = "he-text" id = "HouseNumber" placeholder = "House Number" required 
+					asp-for="customer.HouseNumber"/>
+			<input type = "text" class = "he-text" id = "FLAddress" placeholder = "First Line Address" required 
+					asp-for="customer.FirstAddress"/>
+			<input type = "text" class = "he-text" id = "SLAddress" placeholder = "Second Line Address" required 
+			       asp-for="customer.SecondAddress"/>
+			<input type = "text" class = "he-text" id = "City" placeholder = "City" required 
+					asp-for="customer.City"/>
+			<input type = "text" class = "he-text" id = "State" placeholder = "State" required 
+					asp-for="customer.State"/>
+			<input type = "tel" class = "he-text" id = "Phone" placeholder = "Phone" required 
+					asp-for="customer.Phone"/>
 		</fieldset>
 		<fieldset id = "prof">
 			<legend>Profession</legend>
@@ -114,7 +153,12 @@
                     if (($('#fname').val().length > 1)
                         && ($('#lname').val().length > 1)
                         && ($('input:radio:checked').length === 2)
-                        && ($('#age').val().length > 1)) {
+                        && ($('#age').val().length > 1)
+						&& ($('#email').val().length > 1)
+						&& (isEmail($('#email').val()))
+						&& ($('#pwd').val().length > 8)
+						&& ($('#pwd').val() == $('#pwdConf').val())
+						) {
                         $('#contact').slideDown();
                         $('#personal').slideUp();
                     } else { return true; }
@@ -145,4 +189,8 @@
                 return false;
             });
         });
+		function isEmail(email) {
+  			var regex = '/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/';
+  			return regex.test(email);
+		}
     </script>
