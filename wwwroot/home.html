@@ -27,7 +27,7 @@
                     </svg>
                 </a>
             </li>
-            <li>
+            <li class="selected">
                 <a href="#">
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="asterisk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-asterisk fa-w-16 fa-7x">
                         <g class="fa-group">
@@ -39,10 +39,10 @@
                                 class="svg-primary"></path>
                         </g>
                     </svg>
-                    <span class="link-text">Home</span>
+                    <span class="link-text">Overview</span>
                 </a>
             </li>
-            <li class="selected">
+            <li>
                 <a href="#">
                     <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="money-check-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-money-check-alt fa-w-20 fa-7x">
                         <g class="fa-group">
@@ -121,52 +121,58 @@
     </nav>
     <main>
         <h1>Welcome, @{User}!</h1>
+        <section class="cards">
+            <div class="card">
+                <div class="container-1">
+                    <h3>Your balance is</h3>
+                </div>
+                <div class="container-2">
+                    <h2>₹ 56,234.00</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="container-1">
+                    <h3>Last Transaction</h3>
+                </div>
+                <div class="container-2">
+                    <h2>₹ 500.00</h2>
+                </div>
+            </div>
+            <div class="card" style="grid-row: span 2; grid-column: span 2;">
+                <img src="img/graphSq.png" />
+                <h3>Monthly Usage</h3>
+                <span>Exceeded by ₹ 3,000</span>
+            </div>
+            <div class="card">
+                <div class="container-1">
+                    <h3>Upcoming due</h3>
+                </div>
+                <div class="container-2">
+                    <h2 style="margin-bottom: 0px">Power bill</h2>
+                    <span>Tomorrow, ₹ 631.00</span>
+                </div>
+            </div>
 
-        <div class="card">
-            <h4>Your current balance is</h4>
-            <h2>₹ 56,234.00</h2>
-        </div>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt neque a mi porttitor ultricies. Pellentesque tristique hendrerit rhoncus. Aenean vel hendrerit velit. Phasellus dui risus, porttitor nec volutpat quis, suscipit ac magna. Aenean
-            efficitur mollis aliquet. Duis urna massa, imperdiet in urna et, pellentesque vestibulum ante. Nulla facilisi.
-        </p>
-        <p>
-
-            Donec et porta nisl. Proin ac lacinia nunc. Aenean nec viverra lorem. Morbi dignissim dignissim est ut varius. Nunc id diam suscipit, accumsan quam ac, imperdiet tellus. Nam lacinia rhoncus tristique. Etiam iaculis metus eu diam mollis, non interdum orci
-            finibus. Mauris eget scelerisque turpis. Sed efficitur, nulla at accumsan tempor, velit erat tristique eros, iaculis molestie metus velit vitae erat. Praesent blandit elit nec tortor sagittis ornare. Etiam ac urna lorem. Cras facilisis turpis
-            eu vulputate faucibus. Sed ultrices leo arcu, quis faucibus libero lobortis non.</p>
-        <p>
-
-            Mauris eget justo est. Aliquam sollicitudin odio nunc, nec viverra lacus faucibus a. Duis ultrices pellentesque libero sed dapibus. Curabitur eget euismod metus, et placerat purus. Ut orci nunc, rutrum quis eros nec, ultrices sollicitudin massa. Cras
-            nibh nisl, egestas non luctus venenatis, rutrum id justo. Morbi tincidunt, erat sit amet pellentesque euismod, lacus turpis gravida augue, a pharetra eros urna ut lacus. Curabitur in consequat enim. Class aptent taciti sociosqu ad litora torquent
-            per conubia nostra, per inceptos himenaeos. Maecenas quam est, bibendum vitae mattis eu, auctor et sapien. Proin venenatis, risus eleifend eleifend imperdiet, mi sapien tincidunt neque, eget blandit nunc arcu non erat. Vivamus ac lorem nulla.
-            Maecenas metus nisi, iaculis ac aliquam id, vestibulum non tellus. Maecenas tempus, velit eu hendrerit blandit, nunc magna bibendum leo, ac faucibus risus mauris eget orci. Integer ac odio nec leo sodales fermentum in nec ipsum.</p>
-        <p>
-
-            Donec at hendrerit neque. Pellentesque et faucibus lacus. Mauris lacinia mauris ac risus hendrerit, et interdum odio vulputate. Sed tempus dui et augue ullamcorper sagittis. Proin cursus mauris at tortor viverra accumsan sed ut orci. Phasellus consequat
-            leo quam, at dictum diam consequat a. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam pretium efficitur sollicitudin. In varius metus et sagittis commodo. Etiam tempor, ex nec condimentum
-            vulputate, turpis risus ornare libero, sit amet sollicitudin eros diam id felis. Praesent nisi urna, egestas eu leo eu, commodo ultricies est. Donec suscipit pretium mi, iaculis placerat magna porttitor vitae. Etiam ac massa eu dui tempus
-            egestas congue in massa. Proin ullamcorper sagittis mi in faucibus. Cras aliquam eget tellus vitae pretium. Aenean pellentesque sem libero, eget aliquam ante consequat sit amet. </p>
-        <p>
-
-            Donec felis metus, dapibus nec pretium eu, gravida nec nisi. Quisque placerat semper dui quis laoreet. Sed vestibulum velit tempus justo porttitor, vitae maximus mi ullamcorper. Sed vitae lectus ultricies, sagittis ligula eget, faucibus tellus. Cras porta
-            massa vel erat posuere pretium. Sed nec justo tempor, tempor risus id, vulputate elit. Aenean eleifend pharetra neque, fermentum placerat quam molestie sed. Mauris sed lacus mattis, euismod purus cursus, pharetra velit. Etiam id diam eu lorem
-            maximus aliquet nec ac ipsum. Aliquam lacinia nec ex eget imperdiet.</p>
-        <p>
-
-            Pellentesque imperdiet blandit purus eu molestie. Ut ultrices augue sapien. Fusce molestie auctor eros, sed varius est consectetur vitae. Cras accumsan, justo venenatis hendrerit blandit, leo nisl lobortis diam, vel euismod arcu nibh ut ante. Etiam sed
-            mi est. Pellentesque vel consequat nibh, a convallis dolor. Cras vehicula, augue id scelerisque fermentum, odio enim faucibus ipsum, sit amet convallis ligula nisl sed nisi. Nunc molestie varius diam a maximus. Pellentesque in diam dictum,
-            volutpat nunc et, pulvinar neque.</p>
-        <p>
-
-            Mauris eu nibh nisi. Fusce sit amet tortor aliquam urna sodales tincidunt. Suspendisse ut velit at sem pharetra porta. Donec justo tellus, ultricies ut ullamcorper eget, volutpat ut ligula. Vivamus ullamcorper at justo sit amet dapibus. Duis laoreet,
-            eros vel suscipit pharetra, mauris turpis blandit odio, id vehicula ante orci ac velit. Vivamus hendrerit, libero at mollis volutpat, sapien libero finibus justo, vel accumsan metus dolor sit amet nisl. Nunc ut ligula ex. Duis magna dolor,
-            auctor ac ornare sit amet, ullamcorper eu elit. Nullam interdum faucibus lectus eu accumsan. Suspendisse sodales volutpat luctus. Ut condimentum sem at magna gravida, gravida vestibulum magna gravida. Nam eget commodo ex.</p>
-        <p>
-
-            Nunc sit amet lectus enim. In rutrum, ante id pharetra lobortis, est tortor pharetra libero, id suscipit mauris leo sed elit. Aenean non facilisis ipsum. Curabitur faucibus fermentum sollicitudin. Nulla molestie neque quis nibh scelerisque, sit amet blandit
-            tortor tincidunt. Aenean nec purus vel justo congue vulputate. Vestibulum varius rutrum augue ut suscipit. Nam scelerisque neque in feugiat hendrerit. Ut quis tempor urna.
-        </p>
+            <div class="card">
+                <div class="container-1">
+                    <h3>Quick Send</h3>
+                </div>
+                <div class="container-2" style="text-align: center;">
+                    <br />
+                    <br />
+                    <input type="button" value="Send Money" style="padding: 8px;">
+                </div>
+            </div>
+            <div class="card">
+                <div class="container-1">
+                    <h3>Help</h3>
+                </div>
+                <div class="container-2">
+                    <h4>Call us on:</h4>
+                    <h2>+080 1221 121</h2>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 
