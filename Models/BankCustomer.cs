@@ -1,6 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Text;
+using System;
+using MongoDB.Bson;
 
 namespace NCBank.Models {
     public class BankCustomer {
@@ -51,6 +53,44 @@ namespace NCBank.Models {
             for (int i = 0; i < data.Length; i++)
                 sBuilder.Append(data[i].ToString("x2"));
             return sBuilder.ToString();
+        }
+
+        static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash) {
+            string hashOfInput = GetMd5Hash(md5Hash, input);
+            StringComparer comparer = StringComparer.OrdinalIgnoreCase;
+            if (0 == comparer.Compare(hashOfInput, hash))
+                return true;
+            else
+                return false;
+        }
+
+        public BsonDocument GetBson() {
+            BsonDocument doc = new BsonDocument();
+            doc.Add(new BsonElement("FirstName", FirstName));
+            doc.Add(new BsonElement("LastName", LastName));
+            doc.Add(new BsonElement("Email", Email));
+            doc.Add(new BsonElement("Age", Age));
+            doc.Add(new BsonElement("Gender", Gender));
+            doc.Add(new BsonElement("MaritalStatus", MaritalStatus));
+            doc.Add(new BsonElement("PasswordHash", Password));
+
+            doc.Add(new BsonElement("HouseName", HouseName));
+            doc.Add(new BsonElement("HouseNumber", HouseNumber));
+            doc.Add(new BsonElement("FirstAddress", FirstAddress));
+            doc.Add(new BsonElement("SecondAddress", SecondAddress));
+            doc.Add(new BsonElement("City", City));
+            doc.Add(new BsonElement("State", State));
+            doc.Add(new BsonElement("Phone", Phone));
+
+            doc.Add(new BsonElement("JobTitle", JobTitle));
+            doc.Add(new BsonElement("OrgName", OrgName));
+            doc.Add(new BsonElement("OrgCity", OrgCity));
+            doc.Add(new BsonElement("OrgPhone", OrgPhone));
+
+            doc.Add(new BsonElement("Aadhar", Aadhar));
+            doc.Add(new BsonElement("Pan", Pan));
+
+            return doc;
         }
     }
 }
