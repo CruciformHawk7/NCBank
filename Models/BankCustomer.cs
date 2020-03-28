@@ -1,5 +1,6 @@
-using System;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace NCBank.Models {
     public class BankCustomer {
@@ -37,7 +38,19 @@ namespace NCBank.Models {
 
 
         private string Hash(string password) {
-            return password;
+            string op = "";
+            using (MD5 md5Hash = MD5.Create()){
+                op = GetMd5Hash(md5Hash, password);
+            }
+            return op;
+        }
+
+        static private string GetMd5Hash(MD5 md5Hash, string input) {
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            StringBuilder sBuilder = new StringBuilder();
+            for (int i = 0; i < data.Length; i++)
+                sBuilder.Append(data[i].ToString("x2"));
+            return sBuilder.ToString();
         }
     }
 }
