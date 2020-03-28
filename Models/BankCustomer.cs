@@ -17,9 +17,7 @@ namespace NCBank.Models {
         public string MaritalStatus { get; set; }
         public string Password { 
             get { return _Password; } 
-            set {
-                _Password = Hash(value);
-            } 
+            set { _Password = Hash(value); } 
         } 
         
         public string HouseName { get; set; }
@@ -47,6 +45,14 @@ namespace NCBank.Models {
             return op;
         }
 
+        public bool verifyPassword(string password) {
+            bool op = false;
+            using (MD5 md5hash = MD5.Create()) {
+                op = VerifyMd5Hash(md5hash, this.Password, password);
+            }
+            return op;
+        }
+
         static private string GetMd5Hash(MD5 md5Hash, string input) {
             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
             StringBuilder sBuilder = new StringBuilder();
@@ -55,7 +61,7 @@ namespace NCBank.Models {
             return sBuilder.ToString();
         }
 
-        static bool VerifyMd5Hash(MD5 md5Hash, string input, string hash) {
+        static private bool VerifyMd5Hash(MD5 md5Hash, string input, string hash) {
             string hashOfInput = GetMd5Hash(md5Hash, input);
             StringComparer comparer = StringComparer.OrdinalIgnoreCase;
             if (0 == comparer.Compare(hashOfInput, hash))
