@@ -281,7 +281,6 @@ button.MainButton:active::before {
     justify-content: space-between;
     cursor: default;
     transition: transform 330ms ease-out;
-    margin-left: 1.5rem;
 }
 
 .wrapper-menu.open {
