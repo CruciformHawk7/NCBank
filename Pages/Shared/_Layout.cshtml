@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http.Extensions;
+
+@{
 	if ((string)ViewData["Nav"] == "Home") {
 		<!DOCTYPE html>
 		<html lang = "en">
@@ -266,8 +268,8 @@
 							</svg>
 						</a>
 					</li>
-					<li class="selected">
-						<a href="#">
+					<li id="Dashboard">
+						<a href="Dashboard">
 							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="asterisk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-asterisk fa-w-16 fa-7x">
 								<g class="fa-group">
 									<path fill="currentColor"
@@ -281,8 +283,8 @@
 							<span class="link-text">Overview</span>
 						</a>
 					</li>
-					<li>
-						<a href="#">
+					<li id="Payments">
+						<a href="Payments">
 							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="money-check-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-money-check-alt fa-w-20 fa-7x">
 								<g class="fa-group">
 									<path fill="currentColor"
@@ -296,8 +298,8 @@
 							<span class="link-text">Payments</span>
 						</a>
 					</li>
-					<li>
-						<a href="#">
+					<li id="Trends">
+						<a href="Trends">
 							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="chart-line" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-chart-line fa-w-16 fa-7x">
 								<g class="fa-group">
 									<path fill="currentColor"
@@ -311,8 +313,8 @@
 							<span class="link-text">Trends</span>
 						</a>
 					</li>
-					<li>
-						<a href="#">
+					<li id="Statements">
+						<a href="Statements">
 							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="list-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-list-alt fa-w-16 fa-7x">
 								<g class="fa-group">
 									<path fill="currentColor"
@@ -326,8 +328,8 @@
 							<span class="link-text">Statements</span>
 						</a>
 					</li>
-					<li>
-						<a href="#">
+					<li id="Preferences">
+						<a href="Preferences">
 							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="sliders-v-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-sliders-v-square fa-w-14 fa-7x">
 								<g class="fa-group">
 									<path fill="currentColor"
@@ -341,8 +343,8 @@
 							<span class="link-text">Preferences</span>
 						</a>
 					</li>
-					<li>
-						<a href="#">
+					<li id="Account">
+						<a href="Account">
 							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="user-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg-inline--fa fa-user-circle fa-w-16 fa-7x">
 								<g class="fa-group">
 									<path fill="currentColor"
@@ -358,6 +360,13 @@
 					</li>
 				</ul>
 			</nav>
+			<script>
+				$('li').removeClass('selected');
+				var text = '@Context.Request.GetEncodedPathAndQuery()';
+				text = text.substring(1);
+				console.log(text);
+				$('#' + text).addClass('selected');
+			</script>
 			<main>
 				@RenderBody()
 			</main>
