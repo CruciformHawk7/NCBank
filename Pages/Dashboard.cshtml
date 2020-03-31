@@ -1,0 +1,63 @@
+@page
+@model NCBank.Pages.Dashboard
+
+@{
+    ViewData["Title"] = "Dashboard";
+    ViewData["Nav"] = "dashboard";
+    string User = "Guest";
+}
+
+<h1>Welcome, @User!</h1>
+<section class="cards">
+    <div class="card">
+        <div class="container-1">
+            <h3>Your balance is</h3>
+        </div>
+        <div class="container-2">
+            <h2>₹ 56,234.00</h2>
+        </div>
+    </div>
+    <div class="card">
+        <div class="container-1">
+            <h3>Last Transaction</h3>
+        </div>
+        <div class="container-2">
+            <h2>₹ 500.00</h2>
+        </div>
+    </div>
+    <div class="card" style="grid-row: span 2; grid-column: span 2;">
+        <img src="img/graphSq.png" />
+        <h3>Monthly Usage</h3>
+        <span>Exceeded by ₹ 3,000</span>
+    </div>
+    <div class="card">
+        <div class="container-1">
+            <h3>Upcoming due</h3>
+        </div>
+        <div class="container-2">
+            <h2 style="margin-bottom: 0px">Power bill</h2>
+            <span>Tomorrow, ₹ 631.00</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="container-1">
+            <h3>Quick Send</h3>
+        </div>
+        <div class="container-2" style="text-align: center;">
+            <br />
+            <br />
+            <input type="button" value="Send Money" style="padding: 8px;">
+        </div>
+    </div>
+    <div class="card">
+        <div class="container-1">
+            <h3>Help</h3>
+        </div>
+        <div class="container-2">
+            <h4>Call us on:</h4>
+            <h2>+080 1221 121</h2>
+        </div>
+    </div>
+</section>
+
