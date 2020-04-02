@@ -46,11 +46,7 @@ namespace NCBank.Models {
         }
 
         public bool verifyPassword(string password) {
-            bool op = false;
-            using (MD5 md5hash = MD5.Create()) {
-                op = Hashing.VerifyMd5Hash(md5hash, this.Password, password);
-            }
-            return op;
+            return password==this.Password;
         }
 
     }
