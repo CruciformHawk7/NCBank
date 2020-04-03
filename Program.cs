@@ -20,7 +20,7 @@ namespace NCBank
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>().UseUrls("https://0.0.0.0:5001");
                 });
     }
 }
