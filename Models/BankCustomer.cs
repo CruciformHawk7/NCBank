@@ -7,62 +7,70 @@ namespace NCBank.Models {
         private string _Password;
         [BsonId]
         public ObjectId Id {get; set; }
+
+        [BsonElement("firstName")]
         [Required(ErrorMessage="Enter your First Name")]
         public string FirstName { get; set; }
+
+        [BsonElement("lastName")]
         [Required(ErrorMessage="Enter your Last Name")]
         public string LastName { get; set; }
+        
+        [BsonElement("email")]
         public string Email {get; set; }
+
+        [BsonElement("age")]
         public int Age { get; set; }
+
+        [BsonElement("gender")]
         public string Gender { get; set; }
+
+        [BsonElement("maritalStatus")]
         public string MaritalStatus { get; set; }
+
+        [BsonElement("passwordHash")]
         public string Password { 
             get { return _Password; } 
             set { _Password = Hashing.Hash(value); } 
         } 
         
+        [BsonElement("houseName")]
         public string HouseName { get; set; }
+
+        [BsonElement("houseNumber")]
         public string HouseNumber { get; set; }
+
+        [BsonElement("firstAddress")]
         public string FirstAddress { get; set; }
+
+        [BsonElement("secondAddress")]
         public string SecondAddress { get; set; }
+
+        [BsonElement("city")]
         public string City { get; set; }
+
+        [BsonElement("state")]
         public string State { get; set; }
+
+        [BsonElement("phone")]
         public string Phone { get; set; }
         
+        [BsonElement("jobTitle")]
         public string JobTitle { get; set; }
+
+        [BsonElement("orgName")]
         public string OrgName { get; set; }
+
+        [BsonElement("orgCity")]
         public string OrgCity { get; set; }
+
+        [BsonElement("orgPhone")]
         public string OrgPhone { get; set; }
         
+        [BsonElement("aadhar")]
         public string Aadhar { get; set; }
+
+        [BsonElement("pan")]
         public string Pan { get; set; }
-
-        public BsonDocument GetBson() {
-            BsonDocument doc = new BsonDocument();
-            doc.Add(new BsonElement("firstName", FirstName));
-            doc.Add(new BsonElement("lastName", LastName));
-            doc.Add(new BsonElement("email", Email));
-            doc.Add(new BsonElement("age", Age));
-            doc.Add(new BsonElement("gender", Gender));
-            doc.Add(new BsonElement("maritalStatus", MaritalStatus));
-            doc.Add(new BsonElement("passwordHash", Password));
-
-            doc.Add(new BsonElement("houseName", HouseName));
-            doc.Add(new BsonElement("houseNumber", HouseNumber));
-            doc.Add(new BsonElement("firstAddress", FirstAddress));
-            doc.Add(new BsonElement("secondAddress", SecondAddress));
-            doc.Add(new BsonElement("city", City));
-            doc.Add(new BsonElement("state", State));
-            doc.Add(new BsonElement("phone", Phone));
-
-            doc.Add(new BsonElement("jobTitle", JobTitle));
-            doc.Add(new BsonElement("orgName", OrgName));
-            doc.Add(new BsonElement("orgCity", OrgCity));
-            doc.Add(new BsonElement("orgPhone", OrgPhone));
-
-            doc.Add(new BsonElement("aadhar", Aadhar));
-            doc.Add(new BsonElement("pan", Pan));
-
-            return doc;
-        }
     }
 }
