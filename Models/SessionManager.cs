@@ -25,6 +25,10 @@ namespace NCBank.Models {
 
         public static async Task<Sessions> InsertSession(BankCustomer customer) {
             string sessionID = GetRandomString();
+            while (sessions.ContainsKey(sessionID)) {
+                sessionID = GetRandomString();
+            }
+            
             Sessions session = new Sessions();
             session.SessionID = sessionID;
             session.Email = customer.Email;
