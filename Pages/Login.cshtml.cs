@@ -1,3 +1,4 @@
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace NCBank.Pages {
             var user = await DBInterface.cust.Find(filter).Project(projection).SingleOrDefaultAsync();
             // verify password
             if (cust.verifyPassword(user.GetValue("passwordHash").ToString())) {
+                HttpContext.Session.Set("UserEmail", System.Text.Encoding.ASCII.GetBytes(user.GetValue("email").ToString()));
                 return RedirectToPage("/Dashboard");
             }
             return Page();

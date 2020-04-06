@@ -11,7 +11,13 @@ namespace NCBank.Pages {
         public BankCustomer customer {get; set; }
         
         public void OnPost() {
-            DBInterface.InsertCustomer(customer.GetBson());            
+            DBInterface.cust.InsertOne(customer.ToBsonDocument());
+
+            CustomerBalance balance = new CustomerBalance();
+            balance.Email = customer.Email;
+            balance.Balance = 0;
+
+            DBInterface.cust.InsertOne(balance.ToBsonDocument());
             Response.Redirect("/Index");
         }
     }
