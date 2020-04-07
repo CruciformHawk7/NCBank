@@ -36,5 +36,9 @@ namespace NCBank.Models {
             sessions.Add(sessionID, customer);
             return session;
         }
+
+        public static BankCustomer GetSession(string sessionID) {
+            return sessions[sessionID];
+        }
     }
 }
