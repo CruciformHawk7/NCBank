@@ -9,13 +9,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NCBank.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace NCBank.Pages {
     public class LoginModel : PageModel {
         [BindProperty]
         public LoggedInCustomer cust {get; set; }
 
-        public void OnGet() {
+        public IActionResult OnGet() {
+            if (HttpContext.Session.GetString("sessionID")!=null || HttpContext.Session.GetString("sessionID")!="") {
+                return RedirectToPage("Dashboard");
+            } else {
+                return Page());
+            }
         }
 
         public async Task<IActionResult> OnPostAsync() {

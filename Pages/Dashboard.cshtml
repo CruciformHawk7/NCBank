@@ -4,10 +4,9 @@
 @{
     ViewData["Title"] = "Dashboard";
     ViewData["Nav"] = "dashboard";
-    string User = "Guest";
 }
 
-<h1>Welcome, @User!</h1>
+<h1>Welcome, @Model.user.FirstName!</h1>
 <section class="cards">
     <div class="card">
         <div class="container-1">

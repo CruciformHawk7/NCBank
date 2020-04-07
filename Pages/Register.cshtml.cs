@@ -5,27 +5,25 @@ using MongoDB.Bson;
 using Microsoft.AspNetCore.Http;
 using MongoDB.Driver;
 using NCBank.Models;
+using System.Threading.Tasks;
 
 namespace NCBank.Pages {
     public class Register : PageModel {
         [BindProperty]
         public BankCustomer customer {get; set; }
         
-        public void OnPost() {
-            var sess = SessionManager.InsertSession(customer);
-            sess.Start();
+        public async Task<IActionResult> OnPostAsync() {
             DBInterface.cust.InsertOne(customer.ToBsonDocument());
-
+            var sess = await SessionManager.InsertSession(customer);
             CustomerBalance balance = new CustomerBalance();
             balance.Email = customer.Email;
             balance.Balance = 0;
 
-            DBInterface.cust.InsertOne(balance.ToBsonDocument());
-            
-            sess.Wait();
-            HttpContext.Session.SetString("SessionID", sess.Result.SessionID);
+            DBInterface.bal.InsertOne(balance.ToBsonDocument());
 
-            Response.Redirect("/Dashboard");
+            HttpContext.Session.SetString("sessionID", sess.SessionID);
+
+            return Redirect("/Dashboard");
         }
     }
 }
