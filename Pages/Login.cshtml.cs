@@ -20,7 +20,7 @@ namespace NCBank.Pages {
             if (HttpContext.Session.GetString("sessionID")!=null || HttpContext.Session.GetString("sessionID")!="") {
                 return RedirectToPage("Dashboard");
             } else {
-                return Page());
+                return Page();
             }
         }
 

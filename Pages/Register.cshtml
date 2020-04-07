@@ -136,6 +136,19 @@
 				</tr>
 			</table>
 		</fieldset>
+		<fieldset id="otp">
+			<legend>Verify your Email</legend>
+			<table>
+				<tr>
+					<td>Enter the OTP:</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" class="he-text" id="txtOtp" asp-for="EnteredOTP" required />
+					</td>
+				</tr>
+			</table>
+		</fieldset>
 		<button id = "btnNext" class = "MainButton" style = "margin-left: 70%;">Next</button>
 	</form>
 </div>
@@ -181,11 +194,18 @@
                     && ($('#PhoneOrg').val().length > 1)) { 
                         $('#prof').slideUp();
                         $('#docs').slideDown();
-                        $("#btnNext").html('Submit');
+						@this.Model.Execute()
                     } else { return true; }
+                } else if($("#docs").is(':visible')) {
+                    if (($('#txtaadhar').val().length > 1)
+					&& ($('#txtPan').val().length > 1)) {
+						$('#docs').slideUp();
+						$('#otp').slideDown();
+						$("#btnNext").html('Submit');
+					} else { return true; }
                 } else {
-                    return true;
-                }
+					return true;
+				}
                 return false;
             });
         });
