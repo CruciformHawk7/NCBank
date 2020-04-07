@@ -11,8 +11,8 @@ namespace NCBank.Models {
     public static class SessionManager {
         static private Dictionary<string, BankCustomer> sessions = new Dictionary<string, BankCustomer>();
 
-        static private string GetRandomString() {
-            return new string(Enumerable.Repeat("abcdef1234567890", 13)
+        static public string GetRandomString(int size = 13) {
+            return new string(Enumerable.Repeat("abcdef1234567890", size)
                 .Select(s => {
                     var cryptoResult = new byte[4];
                     using (var cryptoProvider = new RNGCryptoServiceProvider())
