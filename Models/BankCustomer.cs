@@ -72,5 +72,8 @@ namespace NCBank.Models {
 
         [BsonElement("pan")]
         public string Pan { get; set; }
+
+        [BsonElement("verified")]
+        public bool Verified {get; set; }
     }
 }

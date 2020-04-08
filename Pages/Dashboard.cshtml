@@ -1,12 +1,23 @@
 @page
 @model NCBank.Pages.Dashboard
+@using NCBank.Models;
+@using Microsoft.AspNetCore.Http;
 
 @{
     ViewData["Title"] = "Dashboard";
     ViewData["Nav"] = "dashboard";
+    var upser = SessionManager.GetSession(HttpContext.Session.GetString("sessionID"));
 }
 
-<h1>Welcome, @Model.user.FirstName!</h1>
+<h1>Welcome, @upser.FirstName!</h1>
+@{
+    if(!upser.Verified) {
+        <div id="verify" style="background-color: lightblue; border: 1px solid blue; padding: 5px;
+                position: absolute; top: 5px; width: 92%; border-radius: 2px;">
+            You don't seem to have been verified. <a href="/Verify">Click here</a> to verify!
+        </div>
+    }
+}
 <section class="cards">
     <div class="card">
         <div class="container-1">
