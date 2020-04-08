@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using MongoDB.Bson;
+using MongoDB.Driver;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace NCBank.Models {
     public static class SessionManager {
-        static private Dictionary<string, BankCustomer> sessions = new Dictionary<string, BankCustomer>();
+        static private Dictionary<string, ObjectId> sessions = new Dictionary<string, ObjectId>();
 
         static public string GetRandomString(int size = 13) {
             return new string(Enumerable.Repeat("abcdef1234567890", size)
@@ -33,12 +34,14 @@ namespace NCBank.Models {
             session.SessionID = sessionID;
             session.Email = customer.Email;
             await DBInterface.sess.InsertOneAsync(session);
-            sessions.Add(sessionID, customer);
+            sessions.Add(sessionID, customer.Id);
             return session;
         }
 
         public static BankCustomer GetSession(string sessionID) {
-            return sessions[sessionID];
+            var id = sessions[sessionID];
+            var filter = Builders<BankCustomer>.Filter.Eq("_id", id);
+            return DBInterface.cust.Find(filter).Single();
         }
     }
 }
