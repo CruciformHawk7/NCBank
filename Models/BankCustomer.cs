@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization;
 
 namespace NCBank.Models {
     public class BankCustomer {
@@ -75,5 +76,9 @@ namespace NCBank.Models {
 
         [BsonElement("verified")]
         public bool Verified {get; set; }
+
+        public static BankCustomer ToBankCustomer(BsonDocument doc) {
+            return BsonSerializer.Deserialize<BankCustomer>(doc);
+        }
     }
 }
