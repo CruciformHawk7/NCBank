@@ -17,7 +17,7 @@ namespace NCBank.Pages {
         public LoggedInCustomer cust {get; set; }
 
         public IActionResult OnGet() {
-            if (HttpContext.Session.GetString("sessionID")!=null || HttpContext.Session.GetString("sessionID")!="") {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("sessionID"))) {
                 return RedirectToPage("Dashboard");
             } else {
                 return Page();
@@ -26,13 +26,12 @@ namespace NCBank.Pages {
 
         public async Task<IActionResult> OnPostAsync() {
             var filter = Builders<BankCustomer>.Filter.Eq("email", cust.Email);
-
             var projection = Builders<BankCustomer>.Projection.Include("email").Include("passwordHash");
-            // verify email is a valid account
-            var user = await DBInterface.cust.Find(filter).Project(projection).SingleOrDefaultAsync();
-            // verify password
-            if (cust.verifyPassword(user.GetValue("passwordHash").ToString())) {
-                HttpContext.Session.Set("UserEmail", System.Text.Encoding.ASCII.GetBytes(user.GetValue("email").ToString()));
+            var doc = await DBInterface.cust.Find(filter).Project(projection).SingleOrDefaultAsync();
+            var user = BankCustomer.ToBankCustomer(doc);
+            if (cust.verifyPassword(user.Password)) {
+                var sess = await SessionManager.InsertSession(user);
+                HttpContext.Session.Set("sessionID", System.Text.Encoding.ASCII.GetBytes(sess.SessionID));
                 return RedirectToPage("/Dashboard");
             }
             return Page();
