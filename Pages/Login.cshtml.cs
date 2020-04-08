@@ -31,7 +31,7 @@ namespace NCBank.Pages {
             var user = BankCustomer.ToBankCustomer(doc);
             if (cust.verifyPassword(user.Password)) {
                 var sess = await SessionManager.InsertSession(user);
-                HttpContext.Session.Set("sessionID", System.Text.Encoding.ASCII.GetBytes(sess.SessionID));
+                HttpContext.Session.SetString("sessionID", (sess.SessionID));
                 return RedirectToPage("/Dashboard");
             }
             return Page();
