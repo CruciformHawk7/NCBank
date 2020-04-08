@@ -32,7 +32,7 @@ namespace NCBank.Models {
             Sessions session = new Sessions();
             session.SessionID = sessionID;
             session.Email = customer.Email;
-            await DBInterface.sess.InsertOneAsync(session.ToBsonDocument());
+            await DBInterface.sess.InsertOneAsync(session);
             sessions.Add(sessionID, customer);
             return session;
         }

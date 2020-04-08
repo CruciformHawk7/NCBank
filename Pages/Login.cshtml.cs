@@ -25,9 +25,9 @@ namespace NCBank.Pages {
         }
 
         public async Task<IActionResult> OnPostAsync() {
-            var filter = Builders<BsonDocument>.Filter.Eq("email", cust.Email);
+            var filter = Builders<BankCustomer>.Filter.Eq("email", cust.Email);
 
-            var projection = Builders<BsonDocument>.Projection.Include("email").Include("passwordHash");
+            var projection = Builders<BankCustomer>.Projection.Include("email").Include("passwordHash");
             // verify email is a valid account
             var user = await DBInterface.cust.Find(filter).Project(projection).SingleOrDefaultAsync();
             // verify password
