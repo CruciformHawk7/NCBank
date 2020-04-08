@@ -32,7 +32,7 @@ namespace NCBank.Pages {
             var OTP = HttpContext.Session.GetString("OTP");
             user = SessionManager.GetSession(HttpContext.Session.GetString("sessionID"));
             if (userOtp.Equals(OTP, StringComparison.InvariantCultureIgnoreCase)) {
-                var filter = Builders<BankCustomer>.Filter.Eq("email", user.Email);
+                var filter = Builders<BankCustomer>.Filter.Eq("_id", user.Id);
                 var update = Builders<BankCustomer>.Update.Set("verified", true);
                 var result = await DBInterface.cust.UpdateOneAsync(filter, update);
                 HttpContext.Session.SetString("OTP", "");
