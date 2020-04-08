@@ -43,5 +43,11 @@ namespace NCBank.Models {
             var filter = Builders<BankCustomer>.Filter.Eq("_id", id);
             return DBInterface.cust.Find(filter).Single();
         }
+
+        public static void RemoveSession(string sessionID) {
+            var filter = Builders<Sessions>.Filter.Eq("_id", sessions[sessionID]);
+            DBInterface.sess.DeleteOne(filter);
+            sessions.Remove(sessionID);
+        }
     }
 }
