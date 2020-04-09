@@ -27,9 +27,9 @@ namespace NCBank.Pages {
         public async Task<IActionResult> OnPostAsync() {
             var filter = Builders<BankCustomer>.Filter.Eq("email", cust.Email);
             var projection = Builders<BankCustomer>.Projection.Include("email").Include("passwordHash");
-            var doc = await DBInterface.cust.Find(filter).Project(projection).SingleOrDefaultAsync();
+            var doc = await DBInterface.cust.Find(filter).Project(projection).FirstOrDefaultAsync();
             var user = BankCustomer.ToBankCustomer(doc);
-            if (cust.verifyPassword(user.Password)) {
+            if (cust.Password.Equals(user.Password)) {
                 var sess = await SessionManager.InsertSession(user);
                 HttpContext.Session.SetString("sessionID", (sess.SessionID));
                 return RedirectToPage("/Dashboard");
