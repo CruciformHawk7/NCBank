@@ -30,10 +30,7 @@ namespace NCBank.Models {
         public string MaritalStatus { get; set; }
 
         [BsonElement("passwordHash")]
-        public string Password { 
-            get { return _Password; } 
-            set { _Password = Hashing.Hash(value); } 
-        } 
+        public string Password { get; set; } 
         
         [BsonElement("houseName")]
         public string HouseName { get; set; }
@@ -76,6 +73,10 @@ namespace NCBank.Models {
 
         [BsonElement("verified")]
         public bool Verified {get; set; }
+
+        public void prepare() {
+            Password = Hashing.Hash(Password);
+        }
 
         public static BankCustomer ToBankCustomer(BsonDocument doc) {
             return BsonSerializer.Deserialize<BankCustomer>(doc);
