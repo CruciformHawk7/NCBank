@@ -19,5 +19,15 @@ namespace NCBank.Pages {
                 return Page();
             }
         }
+
+        public IActionResult OnGetLogout() {
+            return OnPostLogout();
+        }
+
+        public IActionResult OnPostLogout() {
+            SessionManager.RemoveSession(HttpContext.Session.GetString("sessionID"));
+            HttpContext.Session.SetString("sessionID", "");
+            return RedirectToPage("Index");
+        }
     }
 }
