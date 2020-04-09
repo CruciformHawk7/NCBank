@@ -162,6 +162,18 @@
 	</p>
 </div>
 
+<div style="position: absolute; z-index: 50; left: 80%; top: 30%; color: #fff;
+	transform: translate(-20%, -70%);">
+    <h2>Login</h2>
+    <form style="padding-left: 30px;" method="post">
+        <input type="email" asp-for="cust.Email" id="email" required class="he-text">
+        <br />
+        <input type="password" asp-for="cust.Password" id="password" required class="he-text">
+        <br />
+        <button type="submit" class = "MainButton" style = "left: 50%; transform: translateX(-50%); margin-top: 7%;">Login</button>
+    </form>
+</div>
+
 <script>
 	const TxtType = function (el, toRotate, period) {
 		this.toRotate = toRotate;
