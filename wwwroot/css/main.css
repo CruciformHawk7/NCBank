@@ -88,11 +88,9 @@ html {
 }
 
 .he-welcome {
+    left: 9%;
+    top: 3%;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    top: 40%;
-    font-size: 24px;
     z-index: 40;
 }
 
