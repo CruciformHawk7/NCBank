@@ -1,12 +1,35 @@
 ﻿@page
 @model NCBank.Pages.StatementsModel
+@using Microsoft.AspNetCore.Http
+@using NCBank.Models
+@using MongoDB.Bson
+@using MongoDB.Driver
+
 @{
     ViewData["Title"] = "Statements";
     ViewData["Nav"] = "dashboard";
-    string User = "Guest";
+    var user = SessionManager.GetSession(HttpContext.Session.GetString("sessionID"));
+    var fil = Builders<Transaction>.Filter.Eq("from", user.Email);
+    var doc = await DBInterface.tran.Find(fil).ToListAsync();
 }
 
-<h1>Welcome, @User</h1>
+<h1>Welcome, @user.FirstName</h1>
 <section>
     <h2>Payment Statements</h2>
+    <table>
+        <tr>
+            <td>To</td>
+            <td>Amount</td>
+            <td>Comment</td>
+            <td>Type</td>
+        </tr>
+        @foreach(var i in doc) {
+            <tr>
+                <td>@i.ToEmail</td>
+                <td>@i.Amount</td>
+                <td>@i.Comment</td>
+                <td>@i.Type</td>
+            </tr>
+        }
+    </table>
 </section>
