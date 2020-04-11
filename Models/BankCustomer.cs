@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
@@ -5,7 +6,6 @@ using MongoDB.Bson.Serialization;
 
 namespace NCBank.Models {
     public class BankCustomer {
-        private string _Password;
         [BsonId]
         public ObjectId Id {get; set; }
 
@@ -74,12 +74,41 @@ namespace NCBank.Models {
         [BsonElement("verified")]
         public bool Verified {get; set; }
 
+        [BsonElement("dateCreated")]
+        public DateTime DateCreated { get; set; }
+
         public void prepare() {
             Password = Hashing.Hash(Password);
+            DateCreated = DateTime.Now;
         }
 
         public static BankCustomer ToBankCustomer(BsonDocument doc) {
             return BsonSerializer.Deserialize<BankCustomer>(doc);
+        }
+
+        public static BankCustomer Clone(BankCustomer another) {
+            return new BankCustomer() {
+                FirstName = another.FirstName,
+                LastName = another.LastName,
+                Email = another.Email,
+                Age = another.Age,
+                Gender = another.Gender,
+                MaritalStatus = another.MaritalStatus,
+                Password = "",
+                HouseName = another.HouseName,
+                HouseNumber = another.HouseNumber,
+                FirstAddress = another.FirstAddress,
+                SecondAddress = another.SecondAddress,
+                City = another.City,
+                State = another.State,
+                Phone = another.Phone,
+                JobTitle = another.JobTitle,
+                OrgName = another.OrgName,
+                OrgCity = another.OrgCity,
+                OrgPhone = another.OrgPhone,
+                Aadhar = another.Aadhar,
+                Pan = another.Pan                
+            };
         }
     }
 }

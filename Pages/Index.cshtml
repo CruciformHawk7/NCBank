@@ -6,68 +6,68 @@
 }
 
 <style>
-        :root {
-            --overall-time: 1.5s;
-            --global-delay: calc(var(--overall-time)/7);
-            --final-size: 25%;
-        }
+	:root {
+		--overall-time: 1.5s;
+		--global-delay: calc(var(--overall-time)/7);
+		--final-size: 25%;
+	}
 
-        #logo {
-            animation: var(--overall-time) ease-out zoom-in;
-            left: 50%;
-            top: 50%;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
+	#logo {
+		animation: var(--overall-time) ease-out zoom-in;
+		left: 50%;
+		top: 50%;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+	}
 
-        .animate {
-            stroke-dasharray: 1200;
-            stroke-dashoffset: 1200;
-            animation: dash var(--overall-time) ease forwards;
-        }
+	.animate {
+		stroke-dasharray: 1200;
+		stroke-dashoffset: 1200;
+		animation: dash var(--overall-time) ease forwards;
+	}
 
-        @@keyframes dash {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
+	@@keyframes dash {
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
 
-        @@keyframes zoom-in {
-            0% {
-                width: 100%;
-                opacity: 0;
-            }
+	@@keyframes zoom-in {
+		0% {
+			width: 100%;
+			opacity: 0;
+		}
 
-            100% {
-                width: var(--final-size);
-                opacity: 1;
-            }
-        }
+		100% {
+			width: var(--final-size);
+			opacity: 1;
+		}
+	}
 
-        #CG {
-            animation-delay: calc(var(--global-delay) * 2);
-        }
+	#CG {
+		animation-delay: calc(var(--global-delay) * 2);
+	}
 
-        #BG {
-            animation-delay: calc(var(--global-delay) * 3);
-        }
+	#BG {
+		animation-delay: calc(var(--global-delay) * 3);
+	}
 
-        #aG {
-            animation-delay: calc(var(--global-delay) * 4);
-        }
+	#aG {
+		animation-delay: calc(var(--global-delay) * 4);
+	}
 
-        #nG {
-            animation-delay: calc(var(--global-delay) * 5);
-        }
+	#nG {
+		animation-delay: calc(var(--global-delay) * 5);
+	}
 
-        #kG {
-            animation-delay: calc(var(--global-delay) * 6);
-        }
+	#kG {
+		animation-delay: calc(var(--global-delay) * 6);
+	}
 
-        #lineG {
-            animation-delay: calc(var(--global-delay) * 7);
-        }
+	#lineG {
+		animation-delay: calc(var(--global-delay) * 7);
+	}
 </style>
 <div id="logo">
 	<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 609.994 297.619" preserveAspectRatio="none">
