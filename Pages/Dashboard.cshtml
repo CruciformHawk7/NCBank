@@ -7,6 +7,8 @@
     ViewData["Title"] = "Dashboard";
     ViewData["Nav"] = "dashboard";
     var upser = SessionManager.GetSession(HttpContext.Session.GetString("sessionID"));
+    var bal = await upser.GetBalanceObj();
+    var tran = await upser.GetTransactions();
 }
 
 <h1>Welcome, @upser.FirstName!</h1>
@@ -24,7 +26,7 @@
             <h3>Your balance is</h3>
         </div>
         <div class="container-2">
-            <h2>₹ 56,234.00</h2>
+            <h2>₹ @bal.Balance</h2>
         </div>
     </div>
     <div class="card">
@@ -32,22 +34,13 @@
             <h3>Last Transaction</h3>
         </div>
         <div class="container-2">
-            <h2>₹ 500.00</h2>
+            <h2>₹ @tran.Last().Amount</h2>
         </div>
     </div>
     <div class="card" style="grid-row: span 2; grid-column: span 2;">
         <img src="img/graphSq.png" />
         <h3>Monthly Usage</h3>
         <span>Exceeded by ₹ 3,000</span>
-    </div>
-    <div class="card">
-        <div class="container-1">
-            <h3>Upcoming due</h3>
-        </div>
-        <div class="container-2">
-            <h2 style="margin-bottom: 0px">Power bill</h2>
-            <span>Tomorrow, ₹ 631.00</span>
-        </div>
     </div>
 
     <div class="card">
@@ -57,7 +50,7 @@
         <div class="container-2" style="text-align: center;">
             <br />
             <br />
-            <input type="button" value="Send Money" style="padding: 8px;">
+            <input type="button" value="Send Money" style="padding: 8px;" onclick="window.location.href = 'Payments';">
         </div>
     </div>
     <div class="card">
