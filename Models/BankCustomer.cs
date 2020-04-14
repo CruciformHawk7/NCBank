@@ -1,8 +1,12 @@
+using System.Runtime.CompilerServices;
 using System;
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization;
+using MongoDB.Driver;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace NCBank.Models {
     public class BankCustomer {
@@ -75,11 +79,12 @@ namespace NCBank.Models {
         public bool Verified {get; set; }
 
         [BsonElement("dateCreated")]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local, DateOnly=true)]
         public DateTime DateCreated { get; set; }
 
         public void prepare() {
             Password = Hashing.Hash(Password);
-            DateCreated = DateTime.Now;
+            DateCreated = DateTime.Now.Date;
         }
 
         public static BankCustomer ToBankCustomer(BsonDocument doc) {
@@ -109,6 +114,19 @@ namespace NCBank.Models {
                 Aadhar = another.Aadhar,
                 Pan = another.Pan                
             };
+        }
+
+        public async Task<List<Models.Transaction>> GetTransactions() {
+            var filterTo = Builders<Transaction>.Filter.Eq("to", this.Email);
+            var filterFr = Builders<Transaction>.Filter.Eq("from", this.Email);
+            var filterOr = Builders<Transaction>.Filter.Or(filterTo, filterFr);
+            var find =  await DBInterface.tran.FindAsync(filterOr);
+            return await find.ToListAsync();
+        }
+
+        public async Task<CustomerBalance> GetBalanceObj() {
+            var filter = Builders<CustomerBalance>.Filter.Eq("email", this.Email);
+            return await DBInterface.bal.Find(filter).FirstOrDefaultAsync();
         }
     }
 }
