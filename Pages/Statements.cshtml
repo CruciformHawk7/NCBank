@@ -9,26 +9,49 @@
     ViewData["Title"] = "Statements";
     ViewData["Nav"] = "dashboard";
     var user = SessionManager.GetSession(HttpContext.Session.GetString("sessionID"));
-    var fil = Builders<Transaction>.Filter.Eq("from", user.Email);
-    var doc = await DBInterface.tran.Find(fil).ToListAsync();
+    var transactions = await user.GetTransactions();
 }
+
+<style>
+    table.tbl {
+	    border-collapse: collapse;
+	    border: 1px solid black;
+    }
+
+    .tbl td {
+        padding: 10px 3px;
+    }
+</style>
 
 <h1>Welcome, @user.FirstName</h1>
 <section>
     <h2>Payment Statements</h2>
-    <table>
+    <table class="tbl">
         <tr>
             <td>To</td>
+            <td>Date and Time</td>
+            <td>Type</td>
             <td>Amount</td>
             <td>Comment</td>
-            <td>Type</td>
+            <td>Via</td>
         </tr>
-        @foreach(var i in doc) {
+        @foreach(var transaction in transactions) {
             <tr>
-                <td>@i.ToEmail</td>
-                <td>@i.Amount</td>
-                <td>@i.Comment</td>
-                <td>@i.Type</td>
+                @{
+                    bool isCredit = (transaction.ToEmail == @user.Email);
+                }
+                <td>@if(isCredit) @transaction.FromEmail</td>
+                <td>@transaction.Time</td>
+                <td>@{ 
+                    if(isCredit) { @("Credit") }
+                    else { @("Debit") }
+                }</td>
+                <td>@{ 
+                    if(isCredit){ <span>+@transaction.Amount</span> }
+                    else { <span>-@transaction.Amount</span> }
+                }</td>
+                <td>@transaction.Comment</td>
+                <td>@transaction.Type</td>
             </tr>
         }
     </table>
