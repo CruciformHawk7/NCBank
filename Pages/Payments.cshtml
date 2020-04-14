@@ -8,5 +8,49 @@
 
 <h1>Welcome, @User</h1>
 <section>
-    <h2>Payment Methods</h2>
+    <h2>Fund Transfer</h2>
+    <form method="POST">
+        <table>
+            <tr>
+                <td>
+                    To
+                </td>
+                <td>
+                    <input type="text" asp-for="transaction.ToEmail" class="he-text">
+                </td>
+                <td>
+                    <span asp-validation-for="transaction.ToEmail" style="color: red;"></span>
+                    @ViewData["ToEmailError"]
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Amount
+                </td>
+                <td>
+                    <input type="text" asp-for="transaction.Amount" class="he-text">
+                </td>
+                <td>
+                    <span asp-validation-for="transaction.Amount" style="color: red;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comments
+                </td>
+                <td>
+                    <input type="text" asp-for="transaction.Comment" class="he-text">
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <button class="MainButton" type="submit"></button>
+                </td>
+            </tr>
+        </table>
+    </form>
 </section>
