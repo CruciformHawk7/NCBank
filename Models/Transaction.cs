@@ -24,7 +24,12 @@ namespace NCBank.Models {
         [Required(ErrorMessage="Enter the amount to send")]
         [DataType(DataType.Currency)]
         public double Amount {get; set; }
-        [BsonElement("time")] public DateTime Time {get; private set;}
+
+
+        [BsonElement("time")] 
+        [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
+        public DateTime Time {get; private set;}
+        
         [BsonElement("comment")] public string Comment {get; set; }
         [BsonElement("type")] public TransactionType Type {get; set; }
 
