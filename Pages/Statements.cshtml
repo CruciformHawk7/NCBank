@@ -40,7 +40,7 @@
                 @{
                     bool isCredit = (transaction.ToEmail == @user.Email);
                 }
-                <td>@if(isCredit) @transaction.FromEmail</td>
+                <td>@if(isCredit) @transaction.FromEmail else @transaction.ToEmail</td>
                 <td>@transaction.Time</td>
                 <td>@{ 
                     if(isCredit) { @("Credit") }
