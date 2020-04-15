@@ -2,13 +2,33 @@
 @model NCBank.Pages.Dashboard
 @using NCBank.Models;
 @using Microsoft.AspNetCore.Http;
+@using System.Linq;
 
 @{
     ViewData["Title"] = "Dashboard";
     ViewData["Nav"] = "dashboard";
+    string arr1, arr2;
     var upser = SessionManager.GetSession(HttpContext.Session.GetString("sessionID"));
     var bal = await upser.GetBalanceObj();
     var tran = await upser.GetTransactions();
+    if (tran.Count >= 5) {
+        tran.Reverse();
+        var p = tran.Take(5).Reverse();
+        arr1 = "[";
+        arr2 = "[";
+        int u = 0;
+        for (u = 0; u < 4; u++) {
+            arr1 += p.ElementAt(u).Time.TimeOfDay + ", ";
+            arr2 += p.ElementAt(u).Amount + ", ";
+        }
+        arr1 += p.ElementAt(u).Time.TimeOfDay + "]";
+        arr2 += p.ElementAt(u).Amount + "]";
+    } else {
+        int size = tran.Count;
+        int zeros = 5-size;
+        arr1 = "[0,0,0,0,0]";
+        arr2 = "[0,0,0,0,0]";
+    }
 }
 
 <h1>Welcome, @upser.FirstName!</h1>
@@ -34,11 +54,15 @@
             <h3>Last Transaction</h3>
         </div>
         <div class="container-2">
-            <h2>₹ @tran.Last().Amount</h2>
+            <h2>₹ @{
+                    if(tran.Count!=0) { @tran.Last().Amount }
+                    else { @("0") }
+                }
+                </h2>
         </div>
     </div>
     <div class="card" style="grid-row: span 2; grid-column: span 2;">
-        <img src="img/graphSq.png" />
+        <canvas id="myChart"></canvas>
         <h3>Monthly Usage</h3>
         <span>Exceeded by ₹ 3,000</span>
     </div>
@@ -63,4 +87,44 @@
         </div>
     </div>
 </section>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: @arr1,
+        datasets: [{
+            label: 'Transactions',
+            data: @arr2,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
 
