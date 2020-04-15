@@ -55,6 +55,7 @@ namespace NCBank.Models {
         }
 
         public static async Task DoTransaction(Transaction transaction) {
+            transaction.Time = DateTime.Now;
             await DBInterface.tran.InsertOneAsync(transaction);
             
             var _FromFilter = Builders<CustomerBalance>.Filter.Eq("email", transaction.FromEmail);
