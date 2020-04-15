@@ -12,6 +12,7 @@ namespace NCBank.Pages {
     public class PaymentsModel : PageModel {
         [BindProperty] public Models.Transaction transaction {get; set;}
         [ViewData] public string ToEmailError {get; set; }
+        [ViewData] public string TransErr {get; set; }
         public void OnGet() {
 
         }
