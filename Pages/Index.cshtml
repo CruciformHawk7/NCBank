@@ -295,6 +295,8 @@
 			display: none;" id="loginDiv">
     <h2>Login</h2>
     <form style="padding-left: 30px;" method="post">
+		<h4 style="background-color: lightpink; color: red; border: 1px solid red;">@ViewData["LoginErr"]</h4>
+		<br />
         <input type="email" asp-for="cust.Email" id="email" required class="he-text" placeholder="Email">
         <br />
         <input type="password" asp-for="cust.Password" id="password" required class="he-text" placeholder="Password">
