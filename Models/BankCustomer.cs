@@ -91,8 +91,9 @@ namespace NCBank.Models {
             return BsonSerializer.Deserialize<BankCustomer>(doc);
         }
 
-        public static BankCustomer Clone(BankCustomer another) {
+        internal static BankCustomer InnerClone(BankCustomer another) {
             return new BankCustomer() {
+                Id = another.Id,
                 FirstName = another.FirstName,
                 LastName = another.LastName,
                 Email = another.Email,
