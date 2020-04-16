@@ -6,8 +6,176 @@
     string User = "Guest";
 }
 
+<style>
+    .error {
+        border: 1px solid red;
+        background-color: pink;
+        color: red;
+        font-weight: 400;
+        font-size: medium;
+    }
+</style>
+
 <h1>Welcome, @User</h1>
 <section>
     <h2>Your Account</h2>
+
+    <table>
+        <tr>
+            <td><label asp-for="customer.Id">Customer ID</label></td>
+            <td>
+                @Model.customer.Id
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.FirstName">First Name</label></td>
+            <td>
+                <input type="text" asp-for="customer.FirstName" class="textbox" placeholder="First Name" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.FirstName" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.LastName">Last Name</label></td>
+            <td>
+                <input type="text" asp-for="customer.LastName" class="textbox" placeholder="Last Name" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.LastName" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.Email">Email</label></td>
+            <td>
+                <input type="text" asp-for="customer.Email" class="textbox" readonly required>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.Password">Password</label></td>
+            <td>
+                <input type="password" text="password" readonly>
+            </td>
+            <td>
+                <button class="button">Change password</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.Age">Age</label></td>
+            <td>
+                <input type="text" asp-for="customer.Age" class="textbox" placeholder="Age" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.Age" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.Gender">Gender</label></td>
+            <td>
+                <input type = "radio" value = "male" id = "male" 
+                        required asp-for="customer.Gender"/>
+                <label for = "male">Male</label>
+                <input type = "radio" value = "female" id = "female" 
+                        required  asp-for="customer.Gender"/>
+                <label for = "female">Female</label>
+            </td>
+            <td>
+                <span asp-validation-for="customer.Gender" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.MaritalStatus">Marital Status</label></td>
+            <td>
+                <input type = "radio" value = "married" id = "married" 
+                        required asp-for="customer.MaritalStatus"/>
+                <label for = "married">Married</label>
+                &nbsp; &nbsp;&nbsp;
+                <input type = "radio" value = "single" id = "single" 
+                        required asp-for="customer.MaritalStatus" />
+                <label for = "single">Single</label>
+            </td>
+            <td>
+                <span asp-validation-for="customer.MaritalStatus" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.HouseName">House Name</label></td>
+            <td>
+                <input type="text" asp-for="customer.HouseName" class="textbox" placeholder="House Name" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.HouseName" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.HouseNumber">House Number</label></td>
+            <td>
+                <input type="text" asp-for="customer.HouseNumber" class="textbox" placeholder="House Number" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.HouseNumber" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.HouseNumber">House Number</label></td>
+            <td>
+                <input type="text" asp-for="customer.HouseNumber" class="textbox" placeholder="House Number" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.HouseNumber" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.FirstAddress">First Address</label></td>
+            <td>
+                <input type="text" asp-for="customer.FirstAddress" class="textbox" placeholder="First Address" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.FirstAddress" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.SecondAddress">Second Address</label></td>
+            <td>
+                <input type="text" asp-for="customer.SecondAddress" class="textbox" placeholder="Second Address" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.SecondAddress" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.City">City</label></td>
+            <td>
+                <input type="text" asp-for="customer.City" class="textbox" placeholder="City" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.City" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.State">State</label></td>
+            <td>
+                <input type="text" asp-for="customer.State" class="textbox" placeholder="State" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.State" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><label asp-for="customer.Phone">Phone</label></td>
+            <td>
+                <input type="text" asp-for="customer.Phone" class="textbox" placeholder="Phone" required>
+            </td>
+            <td>
+                <span asp-validation-for="customer.Phone" class="error"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button class="MainButton" type="submit">Update</button></td>
+            <td><button class="button" asp-page-handler="ResetForm">Reset</button></td>
+        </tr>
+    </table>
     
 </section>
