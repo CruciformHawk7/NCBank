@@ -117,6 +117,27 @@ namespace NCBank.Models {
             };
         }
 
+        internal void Update(BankCustomer another) {
+            FirstName = another.FirstName;
+            LastName = another.LastName;
+            Age = another.Age;
+            Gender = another.Gender;
+            MaritalStatus = another.MaritalStatus;
+            HouseName = another.HouseName;
+            HouseNumber = another.HouseNumber;
+            FirstAddress = another.FirstAddress;
+            SecondAddress = another.SecondAddress;
+            City = another.City;
+            State = another.State;
+            Phone = another.Phone;
+            JobTitle = another.JobTitle;
+            OrgName = another.OrgName;
+            OrgCity = another.OrgCity;
+            OrgPhone = another.OrgPhone;
+            Aadhar = another.Aadhar;
+            Pan = another.Pan;
+        }
+
         public async Task<List<Models.Transaction>> GetTransactions() {
             var filterTo = Builders<Transaction>.Filter.Eq("to", this.Email);
             var filterFr = Builders<Transaction>.Filter.Eq("from", this.Email);
