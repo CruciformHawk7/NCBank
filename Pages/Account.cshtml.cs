@@ -29,5 +29,9 @@ namespace NCBank.Pages {
             var filter = Builders<BankCustomer>.Filter.Eq("_id", currentData.Id);
             await DBInterface.cust.FindOneAndReplaceAsync(filter, currentData);
         }
+
+        public IActionResult OnPostPassword() {
+            return RedirectToPage("Password");
+        }
     }
 }

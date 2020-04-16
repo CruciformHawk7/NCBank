@@ -1,9 +1,12 @@
 ﻿@page
 @model NCBank.Pages.AccountModel
+@using Microsoft.AspNetCore.Http
+@using NCBank.Models
+
 @{
     ViewData["Title"] = "Your Account";
     ViewData["Nav"] = "dashboard";
-    string User = "Guest";
+    var user = SessionManager.GetSession(HttpContext.Session.GetString("sessionID"));
 }
 
 <style>
@@ -16,7 +19,7 @@
     }
 </style>
 
-<h1>Welcome, @User</h1>
+<h1>Welcome, @user.FirstName</h1>
 <section>
     <h2>Your Account</h2>
 
@@ -58,7 +61,7 @@
                 <input type="password" text="password" readonly>
             </td>
             <td>
-                <button class="button">Change password</button>
+                <button class="button" asp-page-handler="Password">Change password</button>
             </td>
         </tr>
         <tr>
