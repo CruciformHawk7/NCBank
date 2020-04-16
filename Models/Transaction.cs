@@ -54,17 +54,22 @@ namespace NCBank.Models {
             await DBInterface.bal.FindOneAndUpdateAsync(_ToFilter, _ToUpd);
         }
 
-        public static async Task DoTransaction(Transaction transaction) {
+        public static async Task<Boolean> DoTransaction(Transaction transaction) {
             transaction.Time = DateTime.Now;
-            await DBInterface.tran.InsertOneAsync(transaction);
-            
-            var _FromFilter = Builders<CustomerBalance>.Filter.Eq("email", transaction.FromEmail);
-            var _FromUpd = Builders<CustomerBalance>.Update.Inc("balance", -1*transaction.Amount);
-            await DBInterface.bal.FindOneAndUpdateAsync(_FromFilter, _FromUpd);
+            var result = await Payable(transaction.FromEmail, transaction.Amount);
+            if (result) {
+                await DBInterface.tran.InsertOneAsync(transaction);
+                
+                var _FromFilter = Builders<CustomerBalance>.Filter.Eq("email", transaction.FromEmail);
+                var _FromUpd = Builders<CustomerBalance>.Update.Inc("balance", -1*transaction.Amount);
+                await DBInterface.bal.FindOneAndUpdateAsync(_FromFilter, _FromUpd);
 
-            var _ToFilter = Builders<CustomerBalance>.Filter.Eq("email", transaction.ToEmail);
-            var _ToUpd = Builders<CustomerBalance>.Update.Inc("balance", transaction.Amount);
-            await DBInterface.bal.FindOneAndUpdateAsync(_ToFilter, _ToUpd);
+                var _ToFilter = Builders<CustomerBalance>.Filter.Eq("email", transaction.ToEmail);
+                var _ToUpd = Builders<CustomerBalance>.Update.Inc("balance", transaction.Amount);
+                await DBInterface.bal.FindOneAndUpdateAsync(_ToFilter, _ToUpd);
+                return true;
+            }
+            else return false;
         }
 
         public static bool CheckEmail(string email) {
@@ -72,6 +77,14 @@ namespace NCBank.Models {
             var list = DBInterface.cust.Find(Filter).ToList();
             if (list.Count == 0) return false;
             else return true;
+        }
+
+        private static async Task<Boolean> Payable(string fromEmail, double amount) {
+            var filter = Builders<CustomerBalance>.Filter.Eq("email", fromEmail);
+            var bc = await DBInterface.bal.FindAsync(filter);
+            var cs = await bc.FirstOrDefaultAsync();
+            if (cs.Balance > amount) return true;
+            else return false;
         }
     }
 

@@ -19,11 +19,16 @@ namespace NCBank.Pages {
 
         public async Task<IActionResult> OnPostAsync() {
             if (ModelState.IsValid) {
+                BankCustomer user = SessionManager.GetSession(HttpContext.Session.GetString("sessionID"));
                 if (Models.Transaction.CheckEmail(transaction.ToEmail)) {
-                    BankCustomer user = SessionManager.GetSession(HttpContext.Session.GetString("sessionID"));
                     transaction.FromEmail = user.Email;
                     transaction.Type = TransactionType.NetBanking;
-                    await Models.Transaction.DoTransaction(transaction);
+                    bool res = await Models.Transaction.DoTransaction(transaction);
+                    if (!res) {
+                        TransErr = "You do not have sufficient balance.";
+                    } else {
+                        TransErr = "Payment Successful.";
+                    }
                     return Page();
                 } else {
                     ToEmailError = "This user does not exist.";
