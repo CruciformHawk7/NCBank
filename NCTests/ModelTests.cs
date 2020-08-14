@@ -1,18 +1,19 @@
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NCBank.Models;
 
 namespace NCTests  {
     [TestClass]
-    public class UnitTest1 {
-        
+    public class ModelTests {
+
         /// <summary>
         /// Ensure that 100 unique tokens are generated
         /// </summary>
-        
+
         [TestMethod]
-        
         public void TestSessionTokenGenerate() {
             var tokens = new List<string>();
             for (int i = 0; i < 100; i++) {

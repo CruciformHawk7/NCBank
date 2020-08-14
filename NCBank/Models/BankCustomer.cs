@@ -7,6 +7,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace NCBank.Models {
     public class BankCustomer {
@@ -22,57 +23,96 @@ namespace NCBank.Models {
         public string LastName { get; set; }
         
         [BsonElement("email")]
+        [NotNull]
+        [RegularExpression(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", ErrorMessage = "Invalid Email Address")]
+        [Required(ErrorMessage="Enter an email address")]
         public string Email {get; set; }
 
         [BsonElement("age")]
+        [Range(18, 150, ErrorMessage = "Age out of bounds!")]
+        [Required(ErrorMessage = "No Age entered.")]
         public int Age { get; set; }
 
         [BsonElement("gender")]
+        [RegularExpression("M|F|O|male|female|other", ErrorMessage = "Invalid Gender value")]
         public string Gender { get; set; }
 
         [BsonElement("maritalStatus")]
+        [RegularExpression("M|S|O|married|single|other", ErrorMessage = "Invalid Gender value")]
         public string MaritalStatus { get; set; }
 
         [BsonElement("passwordHash")]
+        [NotNull]
+        [Required]
         public string Password { get; set; } 
         
         [BsonElement("houseName")]
+        [Required]
+        [NotNull]
         public string HouseName { get; set; }
 
         [BsonElement("houseNumber")]
+        [Required]
+        [NotNull]
         public string HouseNumber { get; set; }
 
         [BsonElement("firstAddress")]
+        [Required]
+        [NotNull]
         public string FirstAddress { get; set; }
 
         [BsonElement("secondAddress")]
+        [Required]
+        [NotNull]
         public string SecondAddress { get; set; }
 
         [BsonElement("city")]
+        [Required]
+        [NotNull]
         public string City { get; set; }
 
         [BsonElement("state")]
+        [Required]
+        [NotNull]
         public string State { get; set; }
 
         [BsonElement("phone")]
+        [RegularExpression(@"^[0-9](10-15)$", ErrorMessage = "Invalid phone number.")]
+        [Required]
+        [NotNull]
         public string Phone { get; set; }
         
         [BsonElement("jobTitle")]
+        [Required]
+        [NotNull]
         public string JobTitle { get; set; }
 
         [BsonElement("orgName")]
+        [Required]
+        [NotNull]
         public string OrgName { get; set; }
 
         [BsonElement("orgCity")]
+        [Required]
+        [NotNull]
         public string OrgCity { get; set; }
 
         [BsonElement("orgPhone")]
+        [RegularExpression(@"^[0-9](10-15)$", ErrorMessage = "Invalid phone number.")]
+        [Required]
+        [NotNull]
         public string OrgPhone { get; set; }
         
         [BsonElement("aadhar")]
+        [RegularExpression(@"^[0-9](14)$", ErrorMessage = "Invalid Aadhar number.")]
+        [Required]
+        [NotNull]
         public string Aadhar { get; set; }
 
         [BsonElement("pan")]
+        [RegularExpression("^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$", ErrorMessage = "Invalid PAN")]
+        [Required]
+        [NotNull]
         public string Pan { get; set; }
 
         [BsonElement("verified")]
@@ -82,7 +122,7 @@ namespace NCBank.Models {
         [BsonDateTimeOptions(Kind = DateTimeKind.Local, DateOnly=true)]
         public DateTime DateCreated { get; set; }
 
-        public void prepare() {
+        public void Prepare() {
             Password = Hashing.Hash(Password);
             DateCreated = DateTime.Now.Date;
         }

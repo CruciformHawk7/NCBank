@@ -14,7 +14,7 @@ namespace NCBank.Pages {
         [BindProperty] public BankCustomer customer {get; set; }
         
         public async Task<IActionResult> OnPostAsync() {
-            customer.prepare();
+            customer.Prepare();
             customer.Verified = false;
             DBInterface.cust.InsertOne(customer);
             var sess = await SessionManager.InsertSession(customer);
