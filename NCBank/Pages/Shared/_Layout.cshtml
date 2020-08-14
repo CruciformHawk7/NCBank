@@ -1,0 +1,324 @@
+﻿@using Microsoft.AspNetCore.Http.Extensions;
+
+@{
+	if ((string)ViewData["Nav"] == "Home") {
+		<!DOCTYPE html>
+		<html lang = "en">
+		<head>
+			<meta charset = "utf-8" />
+			<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+			<title>@ViewData["Title"] - NCBank</title>
+			<link rel = "stylesheet" href = "~/css/site.css" />
+			<link rel = "stylesheet" href = "~/css/main.css" />
+			<script src = "~/js/jquery-3.4.1.min.js"></script>
+			<link rel = "stylesheet" href = "~/fapro/css/all.css" />
+			<link rel="stylesheet" href="~/fapro/css/all.css" />
+		</head>
+		<body>
+			<nav>
+				<div class = "button">
+					<div class = "wrapper-menu">
+						<div class = "line-menu half start"></div>
+						<div class = "line-menu"></div>
+						<div class = "line-menu half end"></div>
+					</div>
+				</div>
+
+				<div class = "he-banner" style = "z-index: 30;">
+				</div>
+
+				<div class = "he-inactive-blur">
+
+				</div>
+
+				<div class = "he-welcome" data-rellax-speed = "4">
+					<h1>
+						<a href = "" class = "typewrite" data-period = "2000" 
+						style = "text-decoration: none; color: #fff; " 
+						data-type = '[ "Welcome!", 
+							"Bienvenido!", 
+							"Willkommen!", 
+							"Bienvenue!"]'
+						>
+							<span class = "wrap"></span>
+						</a>
+					</h1>
+				</div>
+
+				<div class = "he-position">
+					<svg class = "he-nav-canv" viewBox = "0 0 100 100" preserveAspectRatio = "none">
+						<polygon fill = "black" points = "00,00 00,100 00,100 00,00">
+							<animate id = "animate1" to = "00,00 00,100 10,100 40,00" begin = "indefinite" 
+									attributeName = "points"
+									dur = "300ms" fill = "freeze" />
+							<animate id = "animate2" to = "00,00 00,100 80,100 40,00" begin = "indefinite" 
+									attributeName = "points"
+									dur = "200ms" fill = "freeze" />
+							<animate id = "animate3" to = "00,00 00,100 80,100 100,00" begin = "indefinite" 
+									attributeName = "points"
+									dur = "200ms" fill = "freeze" />
+							<animate id = "revert1" to = "00,00 00,100 80,100 40,00" begin = "indefinite" 
+										attributeName = "points"
+									dur = "200ms" fill = "freeze" />
+							<animate id = "revert2" to = " 00,00 00,100 10,100 40,00" begin = "indefinite" 
+									attributeName = "points"
+									dur = "200ms" fill = "freeze" />
+							<animate id = "revert3" to = " 00,00 00,100 00,100 00,00" begin = "indefinite" 
+									attributeName = "points"
+									dur = "300ms" fill = "freeze" />
+						</polygon>
+					</svg>
+				</div>
+
+				<div class = "he-menu">
+					<div style="position: absolute; margin-top: 190%; margin-bottom: 20%;">
+						<input type="text" class="he-text" 
+							style="left: 60%; top: 15%; position: absolute; width: 150px !important;" 
+							placeholder="Find..." />
+					</div>
+					<ul style = "top: 60%; position: absolute; margin-top: 50%">
+						<li>
+							<a href="/">Home</a>
+						</li>
+						<li>
+							<a onclick = "$('#signin').slideToggle();">Sign In</a>
+							<div id = "signin" style = "display: block;">
+								<input type = "text" class = "he-text" 
+									style = "width: 150px !important;" placeholder = "Username" />
+								<input type = "text" class = "he-text" 
+									style = "width: 150px !important;" placeholder = "Password" />
+							</div>
+						</li>
+						<li>
+							<a href="/Register">Register</a>
+						</li>
+						<li>
+							<a href="/Privacy">Privacy</a>
+						</li>
+						<li>
+							<a href="/Error">About</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class = "he-video-overlay">
+				</div>
+
+			</nav>
+			<video autoplay muted loop class = "he-video">
+				<source src = "~/res/coverr-cover-videos-480.m4v" type = "video/mp4">
+			</video>
+
+			<div class = "he-content">
+				@RenderBody()
+			</div>
+
+			<script>
+			$().ready(()=> {
+				$('#signin').slideToggle();
+			});
+			</script>
+			<script>
+				const animate1 = document.getElementById("animate1");
+				const animate2 = document.getElementById("animate2");
+				const animate3 = document.getElementById("animate3");
+				const revert3 = document.getElementById("revert3");
+				const revert2 = document.getElementById("revert2");
+				const revert1 = document.getElementById("revert1");
+				const wrapperMenu = document.querySelector('.wrapper-menu');
+				let on = true;
+				$('.button').click(() => {
+					wrapperMenu.classList.toggle('open');
+					if (on) {
+						$(".he-video")
+							.animate({ width: '95%', left: '5%' }, 100)
+							.css("filter", "blur(8px)");
+						animate1.beginElement();
+						setTimeout(() => {
+							animate2.beginElement();
+						}, 100);
+						setTimeout(() => {
+							animate3.beginElement();
+						}, 200);
+						on = false;
+						$(".he-menu").delay(50).animate({ width: 'toggle' }, 200);
+						$(".he-inactive-blur").fadeIn(100);
+					} else {
+						$(".he-video")
+							.animate({ width: '100%', left: '0%' }, 100)
+							.css("filter", "blur(0)");
+						on = true;
+						revert1.beginElement();
+						setTimeout(() => {
+							revert2.beginElement();
+						}, 100);
+						setTimeout(() => {
+							revert3.beginElement();
+						}, 150);
+						$(".he-menu").animate({ width: 'toggle' }, 200);
+						$(".he-inactive-blur").fadeOut(100);
+					}
+				});
+			</script>
+			@await RenderSectionAsync("Scripts", required: false)
+		</body>
+		</html>
+	} else if ((string)ViewData["Nav"] == "dashboard") {
+		<!DOCTYPE html>
+		<html lang="en">
+
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Welcome</title>
+			<link rel="stylesheet" href="css/home.css">
+			<script src="js/jquery-3.4.1.min.js"></script>
+			<script src="js/Chart.bundle.min.js"></script>
+			<link rel="stylesheet" href="css/Chart.css">
+		</head>
+
+		<body>
+			<nav>
+				<ul>
+					<li class="logo">
+						<a class="head">
+							<span class="link-text heading">NC Bank</span>
+							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="chevron-double-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-chevron-double-left fa-w-16 fa-7x">
+								<g class="fa-group">
+									<path fill="currentColor"
+										d="M226.56 239l194-194a23.84 23.84 0 0 1 33.73-.1l.1.1L477 67.7a24.06 24.06 0 0 1 0 33.85L323.36 256l153.58 154.45a23.87 23.87 0 0 1 .1 33.75l-.1.1-22.65 22.7a23.84 23.84 0 0 1-33.73.1l-.1-.1-193.9-194a24.17 24.17 0 0 1 0-34z"
+										class="svg-primary"></path>
+									<path fill="currentColor"
+										d="M35 239L229 45a23.84 23.84 0 0 1 33.73-.1l.1.1 22.61 22.7a23.87 23.87 0 0 1 .1 33.75l-.1.1L131.76 256l153.68 154.45a24.06 24.06 0 0 1 0 33.85L262.79 467a23.84 23.84 0 0 1-33.73.1l-.1-.1L35 273a24.17 24.17 0 0 1 0-34z"
+										class="svg-secondary"></path>
+								</g>
+							</svg>
+						</a>
+					</li>
+					<li id="Dashboard">
+						<a href="Dashboard">
+							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="asterisk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-asterisk fa-w-16 fa-7x">
+								<g class="fa-group">
+									<path fill="currentColor"
+										d="M479 177.64l-.41.23-182.5 100.45 3.45 209.17A24 24 0 0 1 276.06 512h-39.55a24 24 0 0 1-24-24v-.52L216 278 33.47 177.91A24 24 0 0 1 24 145.32l.25-.45 19.5-33.74a24.07 24.07 0 0 1 32.89-8.75l.38.23L256 208l179-105.39a24.07 24.07 0 0 1 33.05 8.12l.23.4 19.5 33.74a24 24 0 0 1-8.78 32.77z"
+										class="svg-secondary"></path>
+									<path fill="currentColor"
+										d="M488 366.68l-.25.45-19.5 33.74a24.07 24.07 0 0 1-32.89 8.75l-.38-.23L256 304 77 409.39a24.07 24.07 0 0 1-33-8.12l-.23-.4-19.5-33.74a24 24 0 0 1 8.83-32.77l.41-.23 182.4-100.45-3.45-209.17A24 24 0 0 1 235.94 0h39.55a24 24 0 0 1 24 24v.52L296 234l182.53 100.09a24 24 0 0 1 9.47 32.59z"
+										class="svg-primary"></path>
+								</g>
+							</svg>
+							<span class="link-text">Overview</span>
+						</a>
+					</li>
+					<li id="Payments">
+						<a href="Payments">
+							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="money-check-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-money-check-alt fa-w-20 fa-7x">
+								<g class="fa-group">
+									<path fill="currentColor"
+										d="M608 32H32A32 32 0 0 0 0 64v384a32 32 0 0 0 32 32h576a32 32 0 0 0 32-32V64a32 32 0 0 0-32-32zM176 327.88V344a8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8v-16.29a57.26 57.26 0 0 1-31.37-11.35 8 8 0 0 1-.57-12.14L123.81 293a8.21 8.21 0 0 1 10.13-.73 24.08 24.08 0 0 0 12.82 3.73h28.11c6.5 0 11.8-5.92 11.8-13.19 0-5.95-3.61-11.19-8.77-12.73l-45-13.5c-18.59-5.58-31.58-23.42-31.58-43.39 0-24.52 19.05-44.44 42.67-45.07V152a8 8 0 0 1 8-8h16a8 8 0 0 1 8 8v16.29a57.18 57.18 0 0 1 31.37 11.35 8 8 0 0 1 .57 12.14L196.18 203a8.21 8.21 0 0 1-10.13.73 24 24 0 0 0-12.82-3.73h-28.11c-6.5 0-11.8 5.92-11.8 13.19 0 5.95 3.61 11.19 8.77 12.73l45 13.5c18.59 5.58 31.58 23.42 31.58 43.39 0 24.53-19.05 44.44-42.67 45.07zM416 312a8 8 0 0 1-8 8H296a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h112a8 8 0 0 1 8 8zm160 0a8 8 0 0 1-8 8h-80a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h80a8 8 0 0 1 8 8zm0-96a8 8 0 0 1-8 8H296a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h272a8 8 0 0 1 8 8z"
+										class="svg-secondary"></path>
+									<path fill="currentColor"
+										d="M144 168.12V152a8 8 0 0 1 8-8h16a8 8 0 0 1 8 8v16.29a57.18 57.18 0 0 1 31.37 11.35 8 8 0 0 1 .57 12.14L196.18 203a8.21 8.21 0 0 1-10.13.73 24 24 0 0 0-12.82-3.73h-28.11c-6.5 0-11.8 5.92-11.8 13.19 0 5.95 3.61 11.19 8.77 12.73l45 13.5c18.59 5.58 31.58 23.42 31.58 43.39 0 24.53-19 44.44-42.67 45.07V344a8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8v-16.29a57.26 57.26 0 0 1-31.37-11.35 8 8 0 0 1-.57-12.14L123.81 293a8.21 8.21 0 0 1 10.13-.73 24.08 24.08 0 0 0 12.82 3.73h28.11c6.5 0 11.8-5.92 11.8-13.19 0-5.95-3.61-11.19-8.77-12.73l-45-13.5c-18.59-5.58-31.58-23.42-31.58-43.39 0-24.52 19.05-44.44 42.68-45.07z"
+										class="svg-primary"></path>
+								</g>
+							</svg>
+							<span class="link-text">Payments</span>
+						</a>
+					</li>
+					<li id="Trends">
+						<a href="Trends">
+							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="chart-line" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-chart-line fa-w-16 fa-7x">
+								<g class="fa-group">
+									<path fill="currentColor"
+										d="M512 400v32a16 16 0 0 1-16 16H32a32 32 0 0 1-32-32V80a16 16 0 0 1 16-16h32a16 16 0 0 1 16 16v304h432a16 16 0 0 1 16 16z"
+										class="svg-secondary"></path>
+									<path fill="currentColor"
+										d="M480 112v118.05c0 21.38-25.85 32.09-41 17l-32.4-32.4-96 96a32 32 0 0 1-45.25 0L192 237.25l-46.06 46.07a16 16 0 0 1-22.63 0l-22.62-22.62a16 16 0 0 1 0-22.63l68.69-68.69a32 32 0 0 1 45.25 0L288 242.75l73.37-73.38L329 137c-15.12-15.12-4.41-41 17-41h118a16 16 0 0 1 16 16z"
+										class="svg-primary"></path>
+								</g>
+							</svg>
+							<span class="link-text">Trends</span>
+						</a>
+					</li>
+					<li id="Statements">
+						<a href="Statements">
+							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="list-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-list-alt fa-w-16 fa-7x">
+								<g class="fa-group">
+									<path fill="currentColor"
+										d="M464 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h416a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zM128 392a40 40 0 1 1 40-40 40 40 0 0 1-40 40zm0-96a40 40 0 1 1 40-40 40 40 0 0 1-40 40zm0-96a40 40 0 1 1 40-40 40 40 0 0 1-40 40zm288 168a12 12 0 0 1-12 12H204a12 12 0 0 1-12-12v-32a12 12 0 0 1 12-12h200a12 12 0 0 1 12 12zm0-96a12 12 0 0 1-12 12H204a12 12 0 0 1-12-12v-32a12 12 0 0 1 12-12h200a12 12 0 0 1 12 12zm0-96a12 12 0 0 1-12 12H204a12 12 0 0 1-12-12v-32a12 12 0 0 1 12-12h200a12 12 0 0 1 12 12z"
+										class="svg-secondary"></path>
+									<path fill="currentColor"
+										d="M128 200a40 40 0 1 0-40-40 40 40 0 0 0 40 40zm0 16a40 40 0 1 0 40 40 40 40 0 0 0-40-40zm0 96a40 40 0 1 0 40 40 40 40 0 0 0-40-40z"
+										class="svg-primary"></path>
+								</g>
+							</svg>
+							<span class="link-text">Statements</span>
+						</a>
+					</li>
+					<li id="Preferences">
+						<a href="Preferences">
+							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="sliders-v-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-sliders-v-square fa-w-14 fa-7x">
+								<g class="fa-group">
+									<path fill="currentColor"
+										d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zM200 224h-24v180a12 12 0 0 1-12 12h-40a12 12 0 0 1-12-12V224H88a23.94 23.94 0 0 1-24-24v-16a23.94 23.94 0 0 1 24-24h24v-52a12 12 0 0 1 12-12h40a12 12 0 0 1 12 12v52h24a23.94 23.94 0 0 1 24 24v16a23.94 23.94 0 0 1-24 24zm184 104a23.94 23.94 0 0 1-24 24h-24v52a12 12 0 0 1-12 12h-40a12 12 0 0 1-12-12v-52h-24a23.94 23.94 0 0 1-24-24v-16a23.94 23.94 0 0 1 24-24h24V108a12 12 0 0 1 12-12h40a12 12 0 0 1 12 12v180h24a23.94 23.94 0 0 1 24 24z"
+										class="svg-secondary"></path>
+									<path fill="currentColor"
+										d="M224 184a23.94 23.94 0 0 0-24-24H88a23.94 23.94 0 0 0-24 24v16a23.94 23.94 0 0 0 24 24h112a23.94 23.94 0 0 0 24-24zm136 104H248a23.94 23.94 0 0 0-24 24v16a23.94 23.94 0 0 0 24 24h112a23.94 23.94 0 0 0 24-24v-16a23.94 23.94 0 0 0-24-24z"
+										class="svg-primary"></path>
+								</g>
+							</svg>
+							<span class="link-text">Preferences</span>
+						</a>
+					</li>
+					<li id="Logout">
+						<a href="/Dashboard?handler=Logout">
+							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="sign-out-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-sign-out-alt fa-w-16 fa-7x">
+								<g class="fa-group">
+									<path fill="currentColor" 
+										d="M64 160v192a32 32 0 0 0 32 32h84a12 12 0 0 1 12 12v40a12 12 0 0 1-12 12H96a96 96 0 0 1-96-96V160a96 96 0 0 1 96-96h84a12 12 0 0 1 12 12v40a12 12 0 0 1-12 12H96a32 32 0 0 0-32 32z" 
+										class="svg-secondary">
+									</path>
+									<path fill="currentColor" 
+										d="M288 424v-96H152a23.94 23.94 0 0 1-24-24v-96a23.94 23.94 0 0 1 24-24h136V88c0-21.4 25.9-32 41-17l168 168a24.2 24.2 0 0 1 0 34L329 441c-15 15-41 4.52-41-17z" 
+										class="svg-primary">
+									</path>
+								</g>
+							</svg>
+							<span class="link-text">Logout</span>
+						</a>
+					</li>
+					<li id="Account">
+						<a href="Account">
+							<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="user-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg-inline--fa fa-user-circle fa-w-16 fa-7x">
+								<g class="fa-group">
+									<path fill="currentColor"
+										d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8Zm0,96a88,88,0,1,1-88,88A88,88,0,0,1,248,104Zm0,344a191.61,191.61,0,0,1-146.5-68.2C120.3,344.4,157.1,320,200,320a24.76,24.76,0,0,1,7.1,1.1,124.67,124.67,0,0,0,81.8,0A24.76,24.76,0,0,1,296,320c42.9,0,79.7,24.4,98.5,59.8A191.61,191.61,0,0,1,248,448Z"
+										class="svg-secondary"></path>
+									<path fill="currentColor"
+										d="M248,280a88,88,0,1,0-88-88A88,88,0,0,0,248,280Zm48,40a24.76,24.76,0,0,0-7.1,1.1,124.67,124.67,0,0,1-81.8,0A24.76,24.76,0,0,0,200,320c-42.9,0-79.7,24.4-98.5,59.8,68.07,80.91,188.84,91.32,269.75,23.25A192,192,0,0,0,394.5,379.8C375.7,344.4,338.9,320,296,320Z"
+										class="svg-primary"></path>
+								</g>
+							</svg>
+							<span class="link-text">Account</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<script>
+				$('li').removeClass('selected');
+				var text = '@Context.Request.GetEncodedPathAndQuery()';
+				text = text.substring(1);
+				console.log(text);
+				$('#' + text).addClass('selected');
+			</script>
+			<main>
+				@RenderBody()
+			</main>
+		@await RenderSectionAsync("Scripts", required: false)
+		</body>
+		</html>
+	} else { 
+		@RenderBody()
+		@await RenderSectionAsync("Scripts", required: false)
+	}
+}

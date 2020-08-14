@@ -1,0 +1,63 @@
+﻿@page
+@model NCBank.Pages.PaymentsModel
+@{
+    ViewData["Title"] = "Payments";
+    ViewData["Nav"] = "dashboard";
+    string User = "Guest";
+}
+
+<h1>Welcome, @User</h1>
+<section>
+    <h2>Fund Transfer</h2>
+    <form method="POST">
+        <table>
+            <tr>
+                <td>
+                    To
+                </td>
+                <td>
+                    <input type="text" asp-for="transaction.ToEmail" class="textbox">
+                </td>
+                <td>
+                    <span asp-validation-for="transaction.ToEmail" style="color: red;"></span>
+                    @ViewData["ToEmailError"]
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Amount
+                </td>
+                <td>
+                    <input type="text" asp-for="transaction.Amount" class="textbox">
+                </td>
+                <td>
+                    <span asp-validation-for="transaction.Amount" style="color: red;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comments
+                </td>
+                <td>
+                    <input type="text" asp-for="transaction.Comment" class="textbox">
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="MainButton" type="submit">Pay</button>
+                </td>
+                <td>
+                    <button class="button" type="reset">Reset</button>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="3">
+                    @ViewData["TransErr"]
+                </td>
+            </tr>
+        </table>
+    </form>
+</section>

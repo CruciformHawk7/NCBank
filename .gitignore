@@ -10,7 +10,7 @@
 *.userosscache
 *.sln.docstates
 
-Models/Secrets.cs
+NCBank/Models/Secrets.cs
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
