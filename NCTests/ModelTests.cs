@@ -12,24 +12,28 @@ namespace NCTests  {
         /// <summary>
         /// Ensure that 100 unique tokens are generated
         /// </summary>
-
         [TestMethod]
         public void TestSessionTokenGenerate() {
             var tokens = new List<string>();
-            for (int i = 0; i < 100; i++) {
-                var sessionId = SessionManager.GetRandomString();
+            for (var i = 0; i < 100; i++) {
+                var sessionId = 
+                    SessionManager.GetRandomString();
                 while (tokens.Contains(sessionId)) {
-                    sessionId = SessionManager.GetRandomString();
+                    sessionId = 
+                        SessionManager.GetRandomString();
                 }
+                tokens.Add(sessionId);
             }
 
             var flag = 0;
             foreach (var token in tokens) {
-                var count = tokens.Count(checkToken => token == checkToken);
+                var count = tokens.Count(
+                    checkToken => token == checkToken);
                 if (count > 1) flag++;
             }
 
-            Assert.AreEqual(0, flag, $"Token Generation encountered ${flag} collisions.");
+            Assert.AreEqual(0, flag, 
+                $"Token Generation encountered ${flag} collisions.");
         }
     }
 }

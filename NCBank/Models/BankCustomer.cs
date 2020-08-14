@@ -77,7 +77,7 @@ namespace NCBank.Models {
         public string State { get; set; }
 
         [BsonElement("phone")]
-        [RegularExpression(@"^[0-9](10-15)$", ErrorMessage = "Invalid phone number.")]
+        [RegularExpression("^[0-9]{10,15}$", ErrorMessage = "Invalid phone number.")]
         [Required]
         [NotNull]
         public string Phone { get; set; }
@@ -98,13 +98,13 @@ namespace NCBank.Models {
         public string OrgCity { get; set; }
 
         [BsonElement("orgPhone")]
-        [RegularExpression(@"^[0-9](10-15)$", ErrorMessage = "Invalid phone number.")]
+        [RegularExpression("^[0-9]{10,15}$", ErrorMessage = "Invalid phone number.")]
         [Required]
         [NotNull]
         public string OrgPhone { get; set; }
         
         [BsonElement("aadhar")]
-        [RegularExpression(@"^[0-9](14)$", ErrorMessage = "Invalid Aadhar number.")]
+        [RegularExpression("^[0-9]{12}$", ErrorMessage = "Invalid Aadhar number.")]
         [Required]
         [NotNull]
         public string Aadhar { get; set; }
