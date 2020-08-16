@@ -3,18 +3,18 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace NCBank.Models {
     public class LoggedInCustomer {
-        private string _Password;
+        private string _password;
 
         [BsonId]
         public ObjectId Id {get; set; }
         public string Email {get; set; }
         public string Password {
-            get { return _Password; }
-            set { _Password = Hashing.Hash(value); }
+            get => _password;
+            set => _password = Hashing.Hash(value);
         }
 
-        public bool verifyPassword(string password) {
-            return password==this.Password;
+        public bool VerifyPassword(string password) {
+            return password==Password;
         }
 
     }

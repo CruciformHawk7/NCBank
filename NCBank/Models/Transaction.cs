@@ -46,6 +46,11 @@ namespace NCBank.Models {
             await DBInterface.tran.InsertOneAsync(tr);
             
             var _FromFilter = Builders<CustomerBalance>.Filter.Eq("email", from);
+            var _FromProject = Builders<CustomerBalance>.Projection.Include("balance");
+            var _FromTest = DBInterface.bal.Find(_FromFilter).Project(_FromProject).FirstOrDefault();
+            if (_FromTest["balance"] < amount) {
+                throw new LowBalanceException(from, to);
+            }
             var _FromUpd = Builders<CustomerBalance>.Update.Inc("balance", -1*amount);
             await DBInterface.bal.FindOneAndUpdateAsync(_FromFilter, _FromUpd);
 
@@ -92,5 +97,15 @@ namespace NCBank.Models {
         NetBanking,
         Transfer,
         Withdrawl
+    }
+
+    public class LowBalanceException : Exception {
+        private readonly string _sender, _receiver;
+
+        public LowBalanceException(string sender, string receiver) {
+            _sender = sender;
+            _receiver = receiver;
+        }
+        public override string Message => $"Balance is too low to send from {_sender} to {_receiver}.";
     }
 }

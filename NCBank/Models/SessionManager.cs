@@ -12,8 +12,8 @@ namespace NCBank.Models {
     public static class SessionManager {
         static private Dictionary<string, ObjectId> sessions = new Dictionary<string, ObjectId>();
 
-        static public string GetRandomString(int size = 13) {
-            return new string(Enumerable.Repeat("abcdef1234567890", size)
+        static public string GetRandomString(int size = 13, string chunk="abcdef1234567890") {
+            return new string(Enumerable.Repeat(chunk, size)
                 .Select(s => {
                     var cryptoResult = new byte[4];
                     using (var cryptoProvider = new RNGCryptoServiceProvider())
@@ -22,6 +22,16 @@ namespace NCBank.Models {
                     return s[new Random(BitConverter.ToInt32(cryptoResult, 0)).Next(s.Length)];
                 })
                 .ToArray());
+        }
+
+        public static string GetRandomString(RandomType randomType, int size = 13) {
+            return randomType switch {
+                RandomType.AlphaNumeric => GetRandomString(size, "abcdef1234567890"),
+                RandomType.Numeric => GetRandomString(size, "1234567890"),
+                RandomType.Caps => GetRandomString(size, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"),
+                RandomType.Small => GetRandomString(size, "abcdefghijklmnopqrstuvwxyz"),
+                _ => ""
+            };
         }
 
         public static async Task<Sessions> InsertSession(BankCustomer customer) {
@@ -49,5 +59,12 @@ namespace NCBank.Models {
             DBInterface.sess.DeleteOne(filter);
             sessions.Remove(sessionID);
         }
+    }
+
+    public enum RandomType {
+        AlphaNumeric,
+        Numeric,
+        Caps,
+        Small
     }
 }

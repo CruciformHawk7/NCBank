@@ -13,14 +13,22 @@ namespace NCTests {
     /// </summary>
     [TestClass]
     public class BankCustomerValidations {
-
-        private TestContext _testContext;
+        
+        public TestContext TestContext { get; set; }
         
         [TestMethod]
         public void AllowValidModel() {
             var bankCustomer = GenerateBankCustomer();
             Assert.IsTrue(ValidateModel(bankCustomer),
                 "Valid model rejected!");
+        }
+
+        [TestMethod]
+        public void TestMockUsers() {
+            for (var i = 0; i < 10; i++) {
+                Assert.IsTrue(ValidateModel(new MockUserGenerator().GetMockUser()), 
+                    $"Model {i} rejected.");
+            }
         }
         
         
@@ -147,20 +155,21 @@ namespace NCTests {
             };
         }
 
-        public TestContext TestContext {
-            get => _testContext;
-            set => _testContext = value;
-        }
-        
         private bool ValidateModel(BankCustomer bankCustomer) {
             var context = new ValidationContext(bankCustomer, 
                 null, null);
             var results = new List<ValidationResult>();
             var state = Validator.TryValidateObject(bankCustomer, 
                 context, results, true);
-            if (!state)
-                foreach (var result in results) 
-                    TestContext.WriteLine(result.ErrorMessage);
+            if (!state) {
+                TestContext.WriteLine("The following properties" +
+                                      " are invalid: ");
+                foreach (var result in results)
+                    TestContext.WriteLine("  • " + result.ErrorMessage);
+            }
+            else TestContext.WriteLine("Model: " + 
+                 $"{bankCustomer.FirstName} {bankCustomer.LastName} is valid");
+            
             return state;
         }
     }

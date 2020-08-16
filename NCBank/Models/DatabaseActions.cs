@@ -3,10 +3,11 @@ using MongoDB.Driver;
 
 namespace NCBank.Models {
     public static class DBInterface {
-        static private IMongoDatabase db = new MongoClient().GetDatabase("bankNC");
-        static internal IMongoCollection<BankCustomer> cust = db.GetCollection<BankCustomer>("customers");
-        static internal IMongoCollection<Sessions> sess = db.GetCollection<Sessions>("sessions");
-        static internal IMongoCollection<CustomerBalance> bal = db.GetCollection<CustomerBalance>("balance");
-        static public IMongoCollection<Transaction> tran = db.GetCollection<Transaction>("transactions");
+        public static string Database = "bankNC";
+        public static IMongoDatabase db = new MongoClient().GetDatabase(Database);
+        public static IMongoCollection<BankCustomer> cust = db.GetCollection<BankCustomer>("customers");
+        public static IMongoCollection<Sessions> sess = db.GetCollection<Sessions>("sessions");
+        public static IMongoCollection<CustomerBalance> bal = db.GetCollection<CustomerBalance>("balance");
+        public static IMongoCollection<Transaction> tran = db.GetCollection<Transaction>("transactions");
     }
 }
